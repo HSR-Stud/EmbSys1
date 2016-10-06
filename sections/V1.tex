@@ -1,11 +1,8 @@
+\renewcommand{\arraystretch}{0.6}
 \section{Microcomputer Organization}
+\vspace{-0.3cm}
 \subsection{Base Microcomputer Structure}
-
-    \begin{wrapfigure}{R}{5cm}%TODO WO??
-        \vspace{-1cm}
-        \includegraphics[width=\linewidth]{images/uCArchitecture}  
-    \end{wrapfigure}
-    
+\begin{minipage}{0.7\linewidth}
 \begin{itemize}
     \item Central Processing Unit (CPU)
         \subitem Fetches, decodes and executes instructions from memory
@@ -22,7 +19,15 @@
         \subitem Control bus 
             \subsubitem reulate the activity in address \& data buses 
 \end{itemize}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+    \vspace{-2cm}
+    \includegraphics[width=1.1\linewidth]{images/hardwareComponents}
+    \includegraphics[width=0.8\linewidth]{images/uCArchitecture} 
+\end{minipage}
+\vspace{-0.5cm}
 \subsection{Microcontroller vs. Microprocessors}
+\vspace{-0.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
         \textbf{Microprocessor(MPU)}
@@ -56,9 +61,12 @@
     \end{minipage}
 \end{multicols}
 \begin{center}
-\includegraphics[width=0.6\linewidth]{images/mCStructure}
+\includegraphics[width=11cm]{images/mCStructure}
 \end{center}
+\clearpage
+
 \subsection{RISC vs. CISC}
+\vspace{-0.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
         \textbf{CISC}\newline
@@ -84,18 +92,22 @@
     \end{minipage}
 \end{multicols}
 
+\begin{multicols}{2}
 \subsection{Central Processing Unit}
-\begin{multicols}{2}
-\includegraphics[width=\linewidth]{images/CPUComponents}
-\begin{multicols}{2}
-    \vspace*{-1cm}
+\includegraphics[width=1.1\linewidth]{images/CPUComponents}
+
 \subsubsection{Control Unit (CU)}
-    \textbf{Operations}
+\begin{multicols}{2}
+\begin{minipage}{\linewidth}
+    \raggedright
+    \vspace{-0.5cm}
+    \textbf{Operations}   
 \begin{itemize}
     \item Governs the CPU working
     \item Cycles forever trough states:
         \subitem Fetch, Decode, Execute
 \end{itemize}
+\end{minipage}
 
 \includegraphics[width=0.85\linewidth]{images/FDELoop}
 \end{multicols}
@@ -120,6 +132,7 @@
 \end{multicols}
 
 \subsection{General Purpose Registers vs Special Registers}
+\vspace{-0.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
         \textbf{General Purpose Register}
@@ -165,17 +178,19 @@ Convers all the components other than the CPU \& memory connected to the system 
         Separate address space, instrutions, and signals for I/O (rarley used in modern processors)
     \end{minipage}
 \end{multicols}
-\hspace{0.5cm}
-\begin{multicols}{2}
-    \begin{minipage}{\linewidth}
+
+    \begin{minipage}{0.6\linewidth}%TODO Layout
+        \raggedright
         Include lines to connect to the system buses, I/O device connection lines and a set of internal registers
         \begin{tabular}{ll}
-            Control & to configure the operation of the device and interface  \\  
-            Status & to allow inquires about the device and interface status  \\ 
-            Data & for exchanging data with the device \\ 
+           \textbf{Control}  & to configure the operation of the device and interface  \\  
+           \textbf{Status}   & to allow inquires about the device and interface status  \\ 
+           \textbf{Data}     & for exchanging data with the device \\ 
         \end{tabular} 
     \end{minipage}
-    \includegraphics[width=0.9\linewidth]{images/IOAnatomy}  
-\end{multicols}
+    \begin{minipage}{0.4\linewidth}
+        \includegraphics[width=\linewidth]{images/IOAnatomy} 
+    \end{minipage}
+   
 \clearpage
 

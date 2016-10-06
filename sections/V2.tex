@@ -21,18 +21,27 @@
 
 \subsubsection{MSP430 GPIO Registers}
 \begin{tabular}{lll}
-    PxSEL   &Port x Function Select             & Sets pin functionality  \\ 
-    PxDIR   &Port x Data Direction              & Sets pin as either IN or OUT \\ 
-    PxOut   &Port x Out                         & Data-out register \\ 
-    PxIN    &Port x Input                       & Data-in register  \\ 
-    PxIFG   &Port x Interrupt Flag              & Interrupt request for port x \\ 
-    PxIES   &Port x Interrupt Edge Selection    & Sets signal edge to trigge interrupts in Port x input  \\ 
-    PxIE    &Port x Interrupt Enable            & Enables interrupts from Port x pins \\ 
-    PxREN   &Port x Ressistor Enable            & Enables internal pull-up/down resistors \\ 
-    PxDS    &Port x Drive Strength              & Sets driver strength for port pins to up to 30mA  \\ 
-    PxIV    &Port x Interrupt Vector            & Priority encoding for port Interrupts \\ 
+    \textbf{PxSEL}   &Port x Function Select             & Sets pin functionality  \\ 
+    \textbf{PxDIR}   &Port x Data Direction              & Sets pin as either IN or OUT \\ 
+    \textbf{PxOut}   &Port x Out                         & Data-out register \\ 
+    \textbf{PxIN}    &Port x Input                       & Data-in register  \\ 
+    \textbf{PxIFG}   &Port x Interrupt Flag              & Interrupt request for port x \\ 
+    \textbf{PxIES}   &Port x Interrupt Edge Selection    & Sets signal edge to trigge interrupts in Port x input  \\ 
+    \textbf{PxIE}    &Port x Interrupt Enable            & Enables interrupts from Port x pins \\ 
+    \textbf{PxREN}   &Port x Ressistor Enable            & Enables internal pull-up/down resistors \\ 
+    \textbf{PxDS}    &Port x Drive Strength              & Sets driver strength for port pins to up to 30mA  \\ 
+    \textbf{PxIV}    &Port x Interrupt Vector            & Priority encoding for port Interrupts \\ 
 \end{tabular} 
 
+\subsubsection{Electrical Characteristics in I/O Pins}
+\begin{tabular}{lll}
+    $ V_{IL} $& Input Low Voltage&Maximum voltage inperpreted as low by pin input buffer\\
+    $ V_{IH} $& Input High Voltage& Minimum voltage interpreted as high by pin inpput buffer\\
+    $ V_{OL} $& Output Low Voltage& Locig-low level. Minimum voltage oserved at pin outputdriver\\
+    $ V_{OH} $& Output High Voltage& Logic-high level. Maximum voltage observed at pin output driver\\
+    $ V_M $   & Pin Threshold Voltage& Ultimate level seperating low and high levels in a digital pin\\
+              &                      & Specified as $ V_m=V_{DD}/2 $ for CMOS logic\\
+\end{tabular} 
 
-%TODO Chapter 08 ab seite 10
+%TODO Chapter 08 ab seite 10 ??
 \clearpage
