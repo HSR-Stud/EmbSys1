@@ -2,10 +2,10 @@
 % Dokumentinformationen %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\titleinfo}{Embedded Systems}
-\newcommand{\authorname}{\href{mailto:lmazzole@hsr.ch}{L. Mazzoleni} }
+\newcommand{\authorname}{\href{mailto:lmazzole@hsr.ch}{L. Mazzoleni} \quad \href{mailto:mgisler@hsr.ch}{M. Gisler}}
 %\RequirePackage{luatex85}
 %\def\pgfsysdriver{pgfsys-pdftex.def}
-\newcommand{\authoremail}{\href{mailto:lmazzole@hsr.ch}{lmazzole@hsr.ch}}
+\newcommand{\authoremail}{\href{mailto:lmazzole@hsr.ch}{lmazzole@hsr.ch}\quad \href{mailto:mgisler@hsr.ch}{M. Gisler}}
 \newcommand{\versioninfo}{$ Revision: 1.1 $}
 
 \include{header/header}
@@ -20,10 +20,18 @@
 \tableofcontents
 \thispagestyle{empty}
 \clearpage
-\input{sections/V1}
+\input{sections/EmbeddedSystems}
 \pagebreak
-\input{sections/V2}
+\input{sections/MicrocomputerOrganization}
 \pagebreak
-\input{sections/V3}
-%\input{idiotenseite/IdiotenseiteInclude}
+\input{sections/FundamentalsofInterfacing}
+\pagebreak
+\input{sections/EmbeddedPeripherals}
+\pagebreak
+\input{sections/ExternalWorldInterfaces}
+\pagebreak
+\input{sections/PrinciplesofSerialCommunication}
+\pagebreak
+\input{sections/AnalogSignalChain}
+\pagebreak
 \end{document}
