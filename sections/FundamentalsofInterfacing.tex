@@ -11,6 +11,7 @@
 \begin{minipage}{5cm}
 	\includegraphics[width=6cm]{images/power.png}
 \end{minipage}
+%ToDo Power Sources ergänzen
 \subsection{Power Sources}
 \begin{itemize}
 	\item Provide Power to CPU and Electronic
@@ -24,6 +25,7 @@
 	\subitem Conditions where the device operating normal	
 \end{itemize}
 \subsection{Clock Sources}
+Clocks are usually based on quartz cristal oscillator. This oscillator is based on mechanical vibration using the piezoelectric effect. 
 \begin{itemize}
 	\item Embedded Systems need a steady clock
 	\item Synchronous nature of CPU and peripherals
@@ -32,14 +34,20 @@
 \subsubsection{Parameters for Clock Signal}
 \begin{minipage}{9cm}
 	\begin{itemize}
-		\item Voltage Swing $V_{SW}=V_{OH}-V_{OL}$
-		\item Frequnecy $f_{clk}=1/T_{clk}$
-		\item Duty Cycle $DC=t_{high}/T_{clk} \cdot 100 \%$
-		\item Edge Speed $t_r, t_f$
+		\item \textbf{Voltage Swing} (Amplitude between low-high) $V_{SW}=V_{OH}-V_{OL}$
+		\item \textbf{Frequnecy} (Number of Cycles per second) \\$f_{clk}=1/T_{clk}$
+		\item \textbf{Duty Cycle} (Ratio of high time to period)\\ $DC=t_{high}/T_{clk} \cdot 100 \%$
+		\item \textbf{Edge Speed} (Rising and falling times)\\$t_r, t_f$
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{8cm}
 	\includegraphics[width=8cm]{images/clock_parameters.png}
 \end{minipage}
+\subsubsection{Clock Stability}
+\begin{itemize}
+	\item Clock Stability, Fluctuations of a clock signal over time intervall
+	\item Clock Jitter, randomness of signal passing voltage threshold
+	\item Clock Drift, change of frequency of an oscillator over time
+\end{itemize}
 \clearpage
 \pagebreak
