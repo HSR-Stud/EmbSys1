@@ -11,7 +11,6 @@
 \begin{minipage}{5cm}
 	\includegraphics[width=6cm]{images/power.png}
 \end{minipage}
-%ToDo Power Sources ergänzen
 \subsection{Power Sources}
 \begin{itemize}
 	\item Provide Power to CPU and Electronic
@@ -22,8 +21,21 @@
 	\subitem Level of Stress
 	\subitem Do Not design operating device at these levels
 	\item Recommended Operating Conditions
-	\subitem Conditions where the device operating normal	
+	\subitem Conditions where the device operating normal
+	\item a typical MCU Power Supply consist of a Unregulated Power Source and then for each peripheral interface is a Voltage Regulator
 \end{itemize}
+\subsubsection{Terms of Power Sources}
+	\begin{itemize}
+		\item Power-Speed Tradeoff, link between frequency and power transfer
+		\item Choose IC's with same Voltage as MCU
+		\item For different IC Voltage Level, fix with Pull Up/Down Resistor
+		\item For Noise Control use Capacitor between V and GND, act as a low-pass filter
+		\item Isolate Power Sourcees from the Rest of the Circuit
+		\item Route separately analog and digital lines 
+		\item Do not mix analog and digital parts
+	\end{itemize}
+\pagebreak
+\clearpage
 \subsection{Clock Sources}
 Clocks are usually based on quartz cristal oscillator. This oscillator is based on mechanical vibration using the piezoelectric effect. 
 \begin{itemize}
