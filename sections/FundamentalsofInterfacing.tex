@@ -1,5 +1,6 @@
 \section{Fundamentals of Interfacing}
 \subsection{Basic Interface Structure 6.1 \embsys{249}}
+\vspace{-0.5cm}
 \begin{minipage}{9cm}
 	\begin{itemize}
 		\item Power Source
@@ -13,6 +14,7 @@
 \end{minipage}
 
 \subsection{Power Sources 6.2 \embsys{250}}
+\begin{minipage}{13cm}
 \begin{itemize}
 	\item Provide Power to CPU and its peripherals
 	\item Require Steady Voltage
@@ -22,19 +24,49 @@
 	\subitem Level of Stress
 	\subitem Do Not design operating device at these levels
 	\item Recommended Operating Conditions
-	\subitem Conditions where the device operating normal
-	\item a typical MCU Power Supply consist of a Unregulated Power Source and then for each peripheral interface is a Voltage Regulator
+	\subitem Conditions where the device operats normal
+	\item a typical MCU Power Supply consist of a Unregulated Power Source and then for each peripheral interface with a Voltage Regulator
 \end{itemize}
+\end{minipage}
+\begin{minipage}{5cm}
+    \hspace*{-2cm}
+    \includegraphics[width=7cm]{images/PowerSource.png}
+\end{minipage}
+
 \subsubsection{Terms of Power Sources \embsys{252}}
+\begin{minipage}{13cm}
 	\begin{itemize}
 		\item Power-Speed Tradeoff, link between frequency and power transfer
 		\item Choose IC's with same Voltage as MCU
 		\item For different IC Voltage Level, fix with Pull Up/Down Resistor
-		\item For Noise Control use Capacitor between V and GND, act as a low-pass filter
+		\item For Noise Control use Capacitor between V and GND
+        \subitem  $ \rightarrow $ act as a low-pass filter
 		\item Isolate Power Sourcees from the Rest of the Circuit
 		\item Route separately analog and digital lines 
 		\item Do not mix analog and digital parts
 	\end{itemize}
+\end{minipage}
+\begin{minipage}{5cm}
+    \includegraphics[width=6cm]{images/PSTradeoff.png}
+\end{minipage}
+
+\begin{tabular}{l l}
+    \textbf{Regulator Capacity ($I_R$)}     & \textbf{Input voltage($V_{NR}$)} \\
+    $ I_R \geq I_L = \sum_{i=1}^{n}I_{Li} $ & $ V_{NR} \geq  (V_R + V_D)$\\
+    \textbf{Non-regulated capacity}         & \textbf{Non-regulated Power} \\
+    $ I_{NR} \geq (I_R + I_{gnd}) $         & $ P_{NR}=V_R(I_R + I_{gnd}) $ \\
+    \textbf{Power to load}                  & \textbf{Power Efficiency} \\
+    $ P_R = V_R \cdot I_L $                 & $ Eff = \dfrac{P_R}{P_{NR}\cdot 100\%} $\\   
+\end{tabular}
+\begin{minipage}{2cm}
+    {\scriptsize
+    $V_R$ = regulated Volatge\newline
+    $ V_D$ = dropout Voltage \newline  } 
+\end{minipage}
+\begin{minipage}{5cm}
+    \includegraphics[width=8cm]{images/NRPowerSource.png}
+\end{minipage}
+
 \clearpage
 
 \subsection{Clock Sources 6.3 \embsys{260}}
