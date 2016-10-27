@@ -1,4 +1,70 @@
 \section{Embedded Peripherals}
+\subsection{Interrupts}
+\begin{itemize}
+	\item A signal indicating an event, which needs immediate CPU attention
+	\item More efficient event handling than polling
+	\item IRQ $\rightarrow$ Interrupt Service Request
+	\item ISR $\rightarrow$ Interrupt Service Routine
+	\item SRQ $\rightarrow$ Service Request
+\end{itemize}
+	\subsubsection{Interrupt Triggers}
+	\begin{tabular}{ll}
+		\textbf{Hardware Trigger}& Rising-Edge, Falling-Edge, Logic Level\\
+		\textbf{Software Trigger}& Software Event in Userprogram\\
+		\textbf{CPU Exception}& CPU State, Divison by Zero, Overflow etc.\\
+	\end{tabular}
+	\subsubsection{Maskable vs Non-maskable Interrupt}
+	\begin{tabular}{ll}
+		\textbf{Maskable Interrupt}& Can be blocked through a flag\\
+		& Most commen Type of interrupt\\
+		\textbf{Non-maskable Interrupt (NMI)}& Cannot be blocked always served\\
+		& Reserved for system critical events\\
+	\end{tabular}
+	\subsubsection{Interrupt Identification Method}
+	\begin{itemize}
+		\begin{minipage}{11cm}
+			\item \textbf{Non-vectored Interrupt}
+			\subitem Single Interrupt Line
+			\subitem Single ISR for all devices
+			\subitem CPU identifies source by polling service request (SRQ) flags
+		\end{minipage}	
+		\begin{minipage}{8cm}
+			\includegraphics[width=7cm]{images/nonvectored.png}
+		\end{minipage}
+		\begin{minipage}{11cm}
+			\item \textbf{Vectored Interrupt}
+			\subitem Require an interrupt Acknowledgment (INTA) cycle
+			\subitem Interface generate an ID number (vector) upon INTA
+			\subitem ID Number allows calculating ISR location
+		\end{minipage}
+			\begin{minipage}{8cm}
+			\includegraphics[width=7cm]{images/vectored.png}
+		\end{minipage}
+		\item \textbf{Auto-vectored}
+		\subitem Each device has a fixed vector or ISR adress
+		\subitem No INTA cycle or vector issuing required
+		\subitem CPU loads direct ISR address into PC to execute ISR
+	\end{itemize}
+\subsubsection{Interrupt Priority Handling}
+\begin{itemize}
+	\item Non-vectored Interrupt
+	\subitem Polling order of SRQ flags decides priority
+	\item Vectored Interrupt
+	\subitem Daisy-Chain:All devices in serie. The closer the device to the CPU the higher the priority
+	\subitem Interrupted Controlled: Uses central arbiter for resolving priorities
+\end{itemize}
+\clearpage
+\pagebreak
+\subsubsection{Interrupts of MSP430}
+\begin{itemize}
+	\item Auto-vectored and Daisy-Chain
+	\item System Resets: Highest priority, non-maskable, triggerd by Watchdog, Power-UP
+	\item Non-maskable: Cannot be masked through GIE-Flag, but masked through their own flag, triggerd by oscillator fault, flash key access violation
+	\item Maskable: all other sources than reset \& NMI, masked by GIE-Flag, fixed priorities
+\end{itemize}
+\subsubsection{Interrupt Service Sequence}
+\includegraphics[width=16cm]{images/iss.png}
+
 \subsection{Timers and Event Counters}
 \subsubsection{Timer Structure}
 A Binary Counter Driven by a Periodic Signal.It is possible to cascade multiple counters\\
@@ -21,8 +87,7 @@ A Binary Counter Driven by a Periodic Signal.It is possible to cascade multiple 
 		\subitem Measures the time elapsed after k clock cycles
 		\item \textbf{Event Counter}
 		\subitem Counts the occurrence of k external events
-	\end{itemize}
-	
+	\end{itemize}	
 	\subsubsection{Timer Application}
 	\begin{itemize}
 		\item Watchdog Timers (WDT)
