@@ -76,23 +76,129 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 	\item Synchronous nature of CPU and peripherals
 	\item Time Base for bus activity, timers, baud rates etc
 \end{itemize}
-\subsubsection{Parameters for Clock Signal}
-\begin{minipage}{9cm}
+\subsubsection{Parameters for Clock Signal \embsys{261}{6.3.1}}
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/clock_parameters.png}
+\end{minipage}
+\begin{minipage}{\linewidth}
+    \begin{multicols}{2}
 	\begin{itemize}
 		\item \textbf{Voltage Swing} (Amplitude between low-high) $V_{SW}=V_{OH}-V_{OL}$
 		\item \textbf{Frequnecy} (Number of Cycles per second) \\$f_{clk}=1/T_{clk}$
 		\item \textbf{Duty Cycle} (Ratio of high time to period)\\ $DC=t_{high}/T_{clk} \cdot 100 \%$
 		\item \textbf{Edge Speed} (Rising and falling times)\\$t_r, t_f$
 	\end{itemize}
+\end{multicols}
 \end{minipage}
-\begin{minipage}{8cm}
-	\includegraphics[width=8cm]{images/clock_parameters.png}
+
+\subsubsection{Clock Stability \embsys{262}{}}
+\begin{tabular}{ll}
+	Clock Stability & Fluctuations of a clock signal over time intervall\\
+	Clock Jitter & Randomness of signal passing voltage threshold\\
+    Clock Drift & Change of frequency of an oscillator over time\\
+\end{tabular}
+
+\subsubsection{Choosing a ClockSource \embsys{264}{6.3.2}}
+\begin{center}
+    \begin{minipage}{7cm}
+        \centering
+        \textbf{Choose the frequency as low as possible, but as high as necessary}
+    \end{minipage}
+\end{center}
+
+What is the fastets event the system will need to handle?\\
+Has the value of $ V_DD $ been assigned?\\
+What peripherals will share the same clockfrequency?\\
+How precise does the clock need to be?\\
+What are the capabilities of the Clock System in my MCU?
+
+\subsubsection{Internal vs External Clock Source \embsys{265}{6.3.3}}
+\begin{multicols}{2}
+    \begin{minipage}{\linewidth}
+        \textbf{Internal Clock}\newline
+        RC, mostly used in MCU's
+        \begin{itemize}
+            \item [+] low number of Boardlevels
+            \item [+] reducing area
+            \item [+] reducing costs
+            \item [+] low power consumption
+            \item [-] Reduced clock stability
+            \item [-] Less flexibility
+            \item [-] Narrower bandwidth
+        \end{itemize}
+    \end{minipage}
+
+    \begin{minipage}{\linewidth}
+    \textbf{External Clock}\newline
+    External Digital Clocks, RC or Quarz
+    \begin{itemize}
+        \item [+] more flexible
+        \item [+] wider range of frequencies
+        \item [+] larger drivin capabilities
+        \item [+] high level of accuracy
+        \item [-] increased number of Boardlevels
+        \item [-] increased space
+        \item [-] higher costs
+    \end{itemize}
 \end{minipage}
-\subsubsection{Clock Stability}
+\end{multicols}
+
+\subsubsection{RC Oscillators}
+\vspace{-1cm}
+\begin{minipage}{0.5\linewidth}
 \begin{itemize}
-	\item Clock Stability, Fluctuations of a clock signal over time intervall
-	\item Clock Jitter, randomness of signal passing voltage threshold
-	\item Clock Drift, change of frequency of an oscillator over time
+    \item Based on PC phase shift circuit
+    \item Clock stability depends on component tolerance
+        \subitem R depends on temperatur
+        \subitem D can $ V_DD $
+    \item Limited bandwith   
 \end{itemize}
+\[ R_b = \dfrac{R_f}{2} \]
+\[ \tau=R\cdot C \]
+\[ f = \dfrac{1}{2 \pi RC} \]
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\linewidth]{images/RCOscillator} 
+\end{minipage}
+
+\subsubsection{Quartz Crystal Oscillators \embsys{266}{6.3.4}}
+\begin{minipage}{0.5\linewidth}
+    \[ f_s=\dfrac{1}{2\pi \sqrt{L_1 \cdot C_1}} \]
+    \[ f_p=\dfrac{1}{2\pi \sqrt{L_1 \dfrac{C_0 \cdot C_1}{C_0 + C_1}}} \]
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.3\linewidth]{images/QuartzESB} 
+\end{minipage}
+\begin{multicols}{2}
+    \begin{minipage}{\linewidth}
+        \textbf{Pierce Crystal Oscillator}\newline
+        Series Resonant
+        \begin{itemize}
+            \item [+] low sensitivity to stray capacitors
+            \item [+] low noise sensitivity
+            \item [+] fast startup
+            \item [-] High power consumption
+            \item [-] can overdrive
+        \end{itemize}
+    \end{minipage}
+    
+    \begin{minipage}{\linewidth}
+        \textbf{Colpitts Crystal Oscillator}\newline
+       Parallel Resonant
+        \begin{itemize}
+            \item [+] low RF emission
+            \item [+] low powerconsumption
+            \item [+] 
+            \item [-] Susceptial to noise
+            \item [-] accelerated crystal aging
+        \end{itemize}
+    \end{minipage}
+\end{multicols}
+
+\textbf{Oscillator Startup Time \embsys{269}{}}\newline
+What Causes the Startup Delay?\newline
+%MAybe write some more stuff
+
 \clearpage
 \pagebreak
