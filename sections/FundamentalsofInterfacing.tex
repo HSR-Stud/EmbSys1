@@ -66,8 +66,35 @@
 \begin{minipage}{5cm}
     \includegraphics[width=8cm]{images/NRPowerSource.png}
 \end{minipage}
-
 \clearpage
+\subsubsection{Low Power Modes of MSP430}
+\begin{minipage}{11cm}
+	\begin{itemize}
+		\item Programming for Low-Power: Initalize, Activate interrupts, Enable Low Power Mode
+		\item Interrupt wake CPU, all task performed with interrupts
+	\end{itemize}
+\end{minipage}
+		\begin{minipage}{8cm}
+	\includegraphics[width=8cm]{images/lowpower.png}
+\end{minipage}
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Mode} & \textbf{CPU \& Clock Status}\\
+	\hline
+	Active & CPU and all clocks enabled\\
+	\hline
+	LPM0 & CPU, MCLK disabled, SMCLK, ACLK enabled \\
+	\hline
+	LPM1 & CPU \& MCLK disabled, DCO, DC Generator off if DCO not used for SMCLK, ACLK enabled\\
+	\hline
+	LPM2 & CPU, MCLK, SMCLK, DCO disabled, DC Generator \& ACLK enabled\\
+	\hline
+	LPM3 & CPU, MCLK, SMCLK, DCO, DC Generator disabled, ACLK enabled\\
+	\hline
+	LPM4 & CPU and all clocks disabled\\
+	\hline	
+\end{tabular}
+
 
 \subsection{Clock Sources \embsys{260}{6.3}}
 Clocks are usually based on quartz cristal oscillator. This oscillator is based on mechanical vibration using the piezoelectric effect. 
