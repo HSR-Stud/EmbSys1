@@ -242,7 +242,7 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     MCLK, ACLK, ACLK/n (n= 2,4)
 \end{minipage}
 \begin{minipage}{0.45\linewidth}
-    \includegraphics[width=0.9\linewidth]{images/FLLClock} 
+    \includegraphics[width=0.8\linewidth]{images/FLLClock} 
 \end{minipage}
 
 \vspace{0.5cm}
@@ -255,10 +255,74 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     MCLK, SMCLK, ACLK, ACLK/n (n= 1,2,4,8)
 \end{minipage}
 \begin{minipage}{0.41\linewidth}
-\includegraphics[width=0.9\linewidth]{images/FLLpClock} 
+\includegraphics[width=0.8\linewidth]{images/FLLpClock} 
 \end{minipage}
 
 \subsubsection{Basic Clock Module and Module+ \embsys{274}{6.4.2}}
+\begin{minipage}{0.585\linewidth}
+    \textbf{Basic Clock Modul}\newline
+    Includes three oscillators:\newline
+    LFXT1, XT2, DCO\newline
+    The DCO is a open loop (no FLL) and has a improved stability. \newline
+    It doesn't need a external Xtal and supports low (32kHz) and high (450kHz to 8Mhz) crystals.\newline\newline
+    
+    Provides four clock signals:\newline
+    MCLK, SMCLK, ACLK \newline
+    All Clock signals features programmable dividers
+\end{minipage}
+\begin{minipage}{0.41\linewidth}
+    \includegraphics[width=0.8\linewidth]{images/BasicClock} 
+\end{minipage}
+\vspace{0.5cm}
+\begin{minipage}{0.585\linewidth}
+    \textbf{Basic Clock Modul +}\newline
+    Includes a fourth clock source:\newline
+    VLO for very low frequencys about 12kHz\newline\newline
+    
+    Inclusion of a minimum pulse filter \newline
+    HF Oscillator and DCO can now reach 16MHz\newline
+    Added a fault detection to LFXT1
+\end{minipage}
+\begin{minipage}{0.41\linewidth}
+    \hspace{-0.35cm}\includegraphics[width=0.85\linewidth]{images/BasicpClock} 
+\end{minipage}
+\clearpage
+%=====================================================================
 
+\subsubsection{The Unified Clock System \embsys{276}{6.4.3}}
+\begin{minipage}{0.585\linewidth}
+    \textbf{Unified Clock System}\newline
+    \begin{tabular}{ll}
+       VLO      & 10kHz, RC-based oscillator    \\
+       LFXT1    & LF = 32kHz HF = 4 to 32 MHz   \\
+       REFO     & LF, RC-based ,reference for DCO\\
+                & Operates at 32 kHz\\
+       DCO      & FLL satbilized via REFO \\
+       XT2      & Similar ro LFXT1 in HF mode\\
+       MODOSC   & Optional oscilatro for FLASH memory\\
+    \end{tabular}
+\end{minipage}
+\begin{minipage}{0.41\linewidth}
+    \includegraphics[width=0.85\linewidth]{images/UnifiedClock} 
+\end{minipage}
+
+\subsubsection{Summary of the MSP430 Clock Systems}
+{\small 
+\begin{tabular}{llllll}
+    \textbf{MSP430}& \textbf{Name} & \textbf{Oscillators} & \textbf{Clock Signals} & \textbf{Max Freq MHZ} & \textbf{DCO Type} \\
+    \hline
+    x3xx           & FLL           & XTAL, DCO            & MCLK, ACLK, XBU        & 0.032                 & FLL                \\
+    x4xx           & FLL+          & LFXT1, DCO, XT2      & MCLK, SMCLK, ACLK, ACLK/n  & 8.000             & FLL                \\
+    x1xx           & BCM           & LFXT1, DCO, XT2      & MCLK, SMCLK, ACLK          & 8.000             & DCO                \\
+    x2xx           & BCM+          & LFXT1, DCO, XT2, VLO & MCLK, SMCLK, ACLK          & 16.000            & DCO                \\
+    x6xx           & UCS           & LFXT1, DCO, XT2, VLO, MODOSC & MCLK, ACLK, SMCLK  & 32.000            & FLL/DCO            \\
+\end{tabular}
+}
+
+\begin{tabular}{lll}
+    \textbf{ACLK} & Auxillary Clock  & Drives peripherals\\
+    \textbf{MCLK} & Main Clock       & Drives the CPU \\
+    \textbf{SMCLK}& Sub-main CLock   & Supports peripherals\\
+\end{tabular}
 \clearpage
 \pagebreak
