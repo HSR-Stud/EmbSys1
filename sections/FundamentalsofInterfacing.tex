@@ -130,15 +130,11 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 
 \vspace{-0.5cm}
 \subsubsection{Choosing a ClockSource \embsys{264}{6.3.2}}
-\begin{center}
     \begin{minipage}{15cm}
-        \centering
         \textbf{Choose the frequency as low as possible, but as high as necessary}
     \end{minipage}
-\end{center}
-\vspace{-0.5cm}
 What is the fastets event the system will need to handle?\\
-Has the value of $ V_DD $ been assigned?\\
+Has the value of $ V_{DD} $ been assigned?\\
 What peripherals will share the same clockfrequency?\\
 How precise does the clock need to be?\\
 What are the capabilities of the Clock System in my MCU?
@@ -187,7 +183,7 @@ What are the capabilities of the Clock System in my MCU?
 \[ R_b = \dfrac{R_f}{2} \qquad \tau=R\cdot C \qquad f = \dfrac{1}{2 \pi RC}  \]
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-    \hspace{1cm}\includegraphics[width=0.6\linewidth]{images/RCOscillator} 
+    \hspace{1cm}\includegraphics[width=0.5\linewidth]{images/RCOscillator} 
 \end{minipage}
 
 \subsubsection{Quartz Crystal Oscillators \embsys{266}{6.3.4}}
@@ -227,7 +223,7 @@ What are the capabilities of the Clock System in my MCU?
 \textbf{Oscillator Startup Time \embsys{269}{}}\newline
 What Causes the Startup Delay?\newline
 Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
-%MAybe write some more stuff
+%TODO Maybe write some more stuff
 %================================================
 \clearpage
 

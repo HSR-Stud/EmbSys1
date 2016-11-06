@@ -1,11 +1,13 @@
 \section{Principles of Serial Communication}
-%TODO Definition von Baudrate, Bitrate, Even&Odd Parity und noch überarbeiten
 \begin{multicols}{2}
-	\textbf{Baud-Rate}\\
-	$\frac{1}{t_{bit}}=Baud-Rate [bit/s]$\\
+	\textbf{Baud-Rate (BR)}\\
+	Expresses the number of symbols per second. If one bit per symbol then bitrate is equal to baudrate. Often 2 Bits per symbol or more then bitrate is higher than baudrate.\\
+	$\frac{1}{t_{symbol}}=Baudrate [bd]$\\
 	\textbf{Bitrate}\\
+	Expresses the number of bits-per-second transmitted in the channel. \\
+	$\frac{1}{t_{bit}}=Bitrate [bit/s]$\\
 \end{multicols}
-\subsection{Data Communication Fundamentals}
+\subsection{Data Communication Fundamentals \embsys{475}{9.1}}
 	\subsubsection{Serial Data Channels}
 	\begin{itemize}
 		\item RX: Receiver, TX:Transmitter
@@ -15,7 +17,7 @@
 		\item longer time for sending bits $n\cdot t_{bit}$
 		\item Single Ended Link: Two Wires (Link, GND)
 		\item Differential Link Channel: Two Wires with Voltage Difference
-		\item USB, RS232,RS485, Bluetooth, Ethernet, I2C, SATA...
+		\item USB, RS232, RS485, Bluetooth, Ethernet, I2C, SATA...
 	\end{itemize}
 \subsubsection{Parallel Data Channels}
 	\begin{itemize}
@@ -23,8 +25,8 @@
 		\item needs for every bit one wire (costs!)
 	\end{itemize}
 	
-\subsection{Types of Serial Communications}
-\subsubsection{Direction of Communications}
+\subsection{Types of Serial Channels \embsys{477}{9.2}}
+\subsubsection{Type of Connectivity}
 \begin{tabular}{lll}
 	\textbf{Simplex}&\textbf{Half-Duplex} &\textbf{Duplex}\\
 	Unidirectional Link&  One Bidirectional Link& Two separate Bidirectional Link\\
@@ -32,18 +34,28 @@
 	No ACK of Data & one Direction at one Time & Simultaneous Communication\\
 	\includegraphics[width=6cm]{images/simplex.png}& \includegraphics[width=6cm]{images/half_duplex.png}&
 	\includegraphics[width=6cm]{images/duplex.png}\\
-\end{tabular}	
-\subsubsection{Topologies}
-\begin{itemize}
-	\item Point-to-Point
-	\item Bus
-	\item Line
-	\item Star
-	\item ring
-\end{itemize}	
+\end{tabular}
+\begin{multicols}{2}
+	\subsubsection{Topologies}
+	\begin{itemize}
+		\item Point-to-Point
+		\item Bus
+		\item Line
+		\item Star
+		\item Ring
+	\end{itemize}
+	\subsubsection{Signaling}
+	\begin{itemize}
+		\item Single-ended signaling (asymmetrischer Signalübertragung)
+		\subitem One wire carries a varying voltage, the other wire a reference voltage
+		\item Differential Signaling (symmetrischer Signalübertragung)
+		\subitem Receiving circuit responds to the electrical difference between the two signals
+	\end{itemize}
+\end{multicols}
+	
 \clearpage
 \pagebreak
-\subsection{Asynchronous Serial Communication}
+\subsection{Asynchronous Serial Communication \embsys{479}{9.3.1}}
 \includegraphics[width=8cm]{images/asyn.png}
 \begin{itemize}
 	\item Synchronous Communication the clock is send with data
@@ -54,13 +66,13 @@
 	\item Falling Edge of Startbit starts Sampling at RX
 	\item Receiver Samples in the middle of each Bit
 	\item If RX runs too fast then ends in incorrect Datagram
-	\item Bad Rate Erros of $2\% to 4\%$ are tolerable
+	\item Bad Rate Erros of $2\%$ to $4\%$ are tolerable
 \end{itemize}
 \subsubsection{Error Detection Mechanism}
 \begin{itemize}
-	\item Even Parity:
-	\item Odd Parity:
-	\item Parity Bit:can be configured to Even, Odd, None, Mark, Space
+	\item Even Parity: If the number of "'1"' is even (gerade) in the bit string then the paritybit is even \newline If for the data communciation even parity given then paritybit is "'0"' for even and "'1"' for odd. 
+	\item Odd Parity: If the number of "'1"' is odd (ungerade)in the bit string then the paritybit is odd \newline If for the data communciation odd parity given then paritybit is "'1"' for even and "'0"' for odd.
+	\item Parity Bit: can be configured to Even, Odd, None, Mark, Space
 	\item Stop Bit: marks the End of the Transmission, always Mark
 \end{itemize}
 \subsubsection{UART (Universal Asynchronous Receiver Transmitter)}
@@ -68,16 +80,50 @@
 	\begin{itemize}
 		\item convert Data from Parallel to Serial and viceversa
 		\item allow the CPU to communicate through the Serial Channel
-		\item USART: supports Asynchronous and Synchronous Communications Channels in one single Serial Interface Module
+		\item Logic Levels, Positive Level (")
+		\item USART: Asynchronous and Synchronous Communications Channels in one single Serial Interface Module
+		\item Choosing the clock source $N=\frac{f_{clk}}{BR}$
+		\item Configuring the baud rate generator
+		\item Choosing and configuring parity check, stop bit length
+		\item \textbf{DSR: }Data Set is Ready
+		\item \textbf{DTR: }Data Terminal is Ready
+		\item \textbf{RTS: }Request to Send
+		\item \textbf{CTS: }Clear to Send
+		\item \textbf{TxD: }Transmitted Data
+		\item \textbf{RxD: }Received Data
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{9cm}
 	\includegraphics[width=9cm]{images/uart.png}
 \end{minipage}
-
-
+\clearpage
+\pagebreak
 \subsubsection{RS-232}
+\begin{itemize}
+	\item asynchrone and Point to Point Link
+	\item One symbol consist of 5 to 9 Bit, often ASCII-Code (7 or 8 Bit per Symbol)
+	\item Physical Voltages, Negative Logic
+	\item $1=-25V to -3V$\newline
+	$0=+25V to +3V$
+	\item Long history in Telephone-Modem Applications
+	\item Connectors DB-25 (D-Sub 25 Pin) and DB-9 (D-Sub 9 Pin)
+	\item\textbf{RI: }Ring Indicator, signals an incoming call
+\end{itemize}
+\begin{tabular}{ccc}
+	\includegraphics[width=6cm]{images/Connectors_RS.png} & \includegraphics[width=4cm]{images/pin_RS.png} & \includegraphics[width=6cm]{images/cable_RS.png}\\
+\end{tabular}
+\subsubsection{RS-422}
+\begin{itemize}
+	\item Duplex, symmetric Bus
+	\item One driver an ten Receivers
+	\item Differential Serial Link
+\end{itemize}
 \subsubsection{RS-485}
+\begin{itemize}
+	\item Bidirectional, Halfduplex Bus
+	\item allows 32 Drivers and 32 Receiver in a single Bus topology
+	\item Termination Impedance $120 \Omega$
+\end{itemize}
 \subsubsection{USB}
 \begin{multicols}{2}
 	\includegraphics[width=8cm]{images/usb_jacks.png}\\
