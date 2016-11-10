@@ -80,7 +80,7 @@
 	\begin{itemize}
 		\item convert Data from Parallel to Serial and viceversa
 		\item allow the CPU to communicate through the Serial Channel
-		\item Logic Levels, Positive Level (")
+		\item Logic Levels, Positive Logic Level (1=high, 0=low)
 		\item USART: Asynchronous and Synchronous Communications Channels in one single Serial Interface Module
 		\item Choosing the clock source $N=\frac{f_{clk}}{BR}$
 		\item Configuring the baud rate generator
@@ -99,18 +99,24 @@
 \clearpage
 \pagebreak
 \subsubsection{RS-232}
-\begin{itemize}
-	\item asynchrone and Point to Point Link
-	\item One symbol consist of 5 to 9 Bit, often ASCII-Code (7 or 8 Bit per Symbol)
-	\item Physical Voltages, Negative Logic
-	\item $1=-25V to -3V$\newline
-	$0=+25V to +3V$
-	\item Long history in Telephone-Modem Applications
-	\item Connectors DB-25 (D-Sub 25 Pin) and DB-9 (D-Sub 9 Pin)
-	\item\textbf{RI: }Ring Indicator, signals an incoming call
-\end{itemize}
+\begin{minipage}{10cm}
+	\begin{itemize}
+		\item asynchrone and Point to Point Link
+		\item One symbol consist of 5 to 9 Bit, often ASCII-Code (7 or 8 Bit per Symbol)
+		\item Physical Voltages, Negative Logic
+		\item $1=-25V \quad to \quad -3V$\newline
+		$0=+25V\quad to \quad +3V$
+		\item Long history in Telephone-Modem Applications
+		\item Connectors DB-25 (D-Sub 25 Pin) and DB-9 (D-Sub 9 Pin)
+		\item\textbf{RI: }Ring Indicator, signals an incoming call
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{6cm}
+	\includegraphics[width=6cm]{images/Connectors_RS.png}
+\end{minipage}
+\\
 \begin{tabular}{ccc}
-	\includegraphics[width=6cm]{images/Connectors_RS.png} & \includegraphics[width=4cm]{images/pin_RS.png} & \includegraphics[width=6cm]{images/cable_RS.png}\\
+	\includegraphics[width=4cm]{images/pin_RS.png} & \includegraphics[width=6cm]{images/cable2_RS.png} & \includegraphics[width=6cm]{images/cable_RS.png}\\
 \end{tabular}
 \subsubsection{RS-422}
 \begin{itemize}
