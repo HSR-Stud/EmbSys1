@@ -1,12 +1,19 @@
 \section{Principles of Serial Communication}
+\vspace{-.5cm}
 \begin{multicols}{2}
-	\textbf{Baud-Rate (BR)}\\
-	Expresses the number of symbols per second. If one bit per symbol then bitrate is equal to baudrate. Often 2 Bits per symbol or more then bitrate is higher than baudrate.\\
-	$\frac{1}{t_{symbol}}=Baudrate [bd]$\\
-	\textbf{Bitrate}\\
+    \begin{minipage}{\linewidth}%HHÄ?
+	\textbf{Baud-Rate (BR)}
+    \[\frac{1}{t_{symbol}}=Baudrate [bd]\]
+	Expresses the number of symbols per second. If one bit per symbol then bitrate is equal to baudrate. Often 2 Bits per symbol or more then bitrate is higher than baudrate.\\ 
+    \end{minipage}
+
+    \begin{minipage}{\linewidth}
+	\textbf{Bitrate}
+    \[\frac{1}{t_{bit}}=Bitrate [bit/s]\]
 	Expresses the number of bits-per-second transmitted in the channel. \\
-	$\frac{1}{t_{bit}}=Bitrate [bit/s]$\\
+    \end{minipage}
 \end{multicols}
+\vspace{-1cm}
 \subsection{Data Communication Fundamentals \embsys{475}{9.1}}
 	\subsubsection{Serial Data Channels}
 	\begin{itemize}
@@ -22,7 +29,7 @@
 \subsubsection{Parallel Data Channels}
 	\begin{itemize}
 		\item n Bits are transferred simultaneously in parallel
-		\item needs for every bit one wire (costs!)
+		\item needs a wire for every bit $ \rightarrow $ expensiv!
 	\end{itemize}
 	
 \subsection{Types of Serial Channels \embsys{477}{9.2}}

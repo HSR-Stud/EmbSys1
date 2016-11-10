@@ -1,7 +1,7 @@
 \section{Fundamentals of Interfacing}
 \subsection{Basic Interface Structure \embsys{249}{6.1}}
 \vspace{-0.5cm}
-\begin{minipage}{9cm}
+\begin{minipage}{10cm}
 	\begin{itemize}
 		\item Power Source
 		\item Clock Oscillators
@@ -33,7 +33,7 @@
     \includegraphics[width=7cm]{images/PowerSource.png}
 \end{minipage}
 
-\subsubsection{Terms of Power Sources \embsys{252}{?}}
+\subsubsection{Terms of Power Sources \embsys{252}{}}
 \begin{minipage}{13cm}
 	\begin{itemize}
 		\item Power-Speed Tradeoff, link between frequency and power transfer
@@ -130,9 +130,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 
 \vspace{-0.5cm}
 \subsubsection{Choosing a ClockSource \embsys{264}{6.3.2}}
-    \begin{minipage}{15cm}
-        \textbf{Choose the frequency as low as possible, but as high as necessary}
-    \end{minipage}
+\textbf{\danger Choose the frequency as low as possible, but as high as necessary \danger }\newline
 What is the fastets event the system will need to handle?\\
 Has the value of $ V_{DD} $ been assigned?\\
 What peripherals will share the same clockfrequency?\\
@@ -243,7 +241,7 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
 
 \vspace{0.5cm}
 \begin{minipage}{0.585\linewidth}
-    \textbf{FLL+ Clock Modul}\newline
+    \textbf{FLL+ Clock Modul}\newline\newline
     This improved module consists of a secondary oscillator.\newline
     The LFXT is a improved version of the pierce crystal oscillator. It accepts extern crystals with frequencies in the range from 400kHz to 8MHz.\newline\newline
     
@@ -271,7 +269,7 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
 \end{minipage}
 \vspace{0.5cm}
 \begin{minipage}{0.585\linewidth}
-    \textbf{Basic Clock Modul +}\newline
+    \textbf{Basic Clock Modul +}\newline\newline
     Includes a fourth clock source:\newline
     VLO for very low frequencys about 12kHz\newline\newline
     
@@ -315,10 +313,5 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
 \end{tabular}
 }
 
-\begin{tabular}{lll}
-    \textbf{ACLK} & Auxillary Clock  & Drives peripherals\\
-    \textbf{MCLK} & Main Clock       & Drives the CPU \\
-    \textbf{SMCLK}& Sub-main CLock   & Supports peripherals\\
-\end{tabular}
 \clearpage
 \pagebreak
