@@ -1,7 +1,7 @@
 \section{Principles of Serial Communication}
 \vspace{-.5cm}
 \begin{multicols}{2}
-    \begin{minipage}{\linewidth}%HHÄ?
+    \begin{minipage}{\linewidth}
 	\textbf{Baud-Rate (BR)}
     \[\frac{1}{t_{symbol}}=Baudrate [bd]\]
 	Expresses the number of symbols per second. If one bit per symbol then bitrate is equal to baudrate. Often 2 Bits per symbol or more then bitrate is higher than baudrate.\\ 
@@ -82,7 +82,7 @@
 	\item Parity Bit: can be configured to Even, Odd, None, Mark, Space
 	\item Stop Bit: marks the End of the Transmission, always Mark
 \end{itemize}
-\subsubsection{UART (Universal Asynchronous Receiver Transmitter)}
+\subsubsection{Universal Asynchronous Receiver Transmitter (UART)}
 \begin{minipage}{10cm}
 	\begin{itemize}
 		\item convert Data from Parallel to Serial and viceversa
@@ -137,7 +137,7 @@
 	\item allows 32 Drivers and 32 Receiver in a single Bus topology
 	\item Termination Impedance $120 \Omega$
 \end{itemize}
-\subsubsection{USB}
+\subsubsection{Universal Serial Bus (USB)}
 \begin{multicols}{2}
 	\includegraphics[width=8cm]{images/usb_jacks.png}\\
 	\includegraphics[width=8cm]{images/usb_voltage.png}\\
@@ -176,5 +176,50 @@ For this concept there are two implementations:
 	\item \textbf{RS-232} use lines of RS-232
 	\subitem RTS, CTS, DSR, DTR allowing to send data
 \end{itemize}
+\subsection{Synchronous Serial Communication \embsys{498}{9.4}}
+\begin{minipage}{11cm}
+	\begin{itemize}
+		\item Both transmitting and receiving data are with the same Clock Signal
+		\item Data and Clock Signal are transmitted over the channel
+		\item Usually Master/Slave-Mode
+		\item Datagrams can be longer than those in asynchron
+		\item Multidrop possible
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{8cm}
+	\includegraphics[width=8cm]{images/syn.png}
+\end{minipage}
+\clearpage
+\pagebreak
+\subsubsection{Serial Peripheral Interface Bus (SPI)} %TODO Design?
+\begin{itemize}
+	\item Fullduplex
+	\item defines the relay of Packets between a Master and one or more Slaves only (Physical Layer of Communication)
+	\item does not specify any Data, Session, or higher-level Protocol
+	\item single Shift Register that serves as both, Receiver and Transmitter, synchronized by the Transmission Clock
+	\item limited interfaced Distance
+	\item no Error Checking Mechanism
+	\item Each Slave contain a MISO Driver which is activatet by the SS-Line
+	\item Chained Configuration: Slaves share SS and between salve MISO, MOSI are connected
+	\item SS: select Slave, activate MISO and signalize Start and End of Data
+	\item \textbf{SCLK: }Serial Clock
+	\item \textbf{SDO: } Serial Data Out
+	\item \textbf{SDI: } Serial Data In
+	\item \textbf{SS: }Slave Select
+	\item \textbf{MOSI: }Master Out / Slave In
+	\item \textbf{MISO: }Master In / Slave Out	
+\end{itemize}
+\textbf{Data Transfer}\\
+\begin{enumerate}
+	\item Store Data into Data Buffer, copied into Shift Register
+	\item Activate Slave Select
+	\item Common-Clocked Data-Transfer between Shift Registers
+	\item Deactivate Slave Select
+	\item Copied received Date into Data Buffer, Read Data
+\end{enumerate}
+\includegraphics[width=14cm]{images/spi.png}
+\clearpage
+\pagebreak
+\subsubsection{Inter-Integrated Circuit Bus ($I^2C$)}
 \clearpage
 \pagebreak
