@@ -200,7 +200,8 @@ For this concept there are two implementations:
 	\item limited interfaced Distance
 	\item no Error Checking Mechanism
 	\item Each Slave contain a MISO Driver which is activatet by the SS-Line
-	\item Chained Configuration: Slaves share SS and between salve MISO, MOSI are connected
+	\item Chained Configuration: Slaves share SS and between slave MISO, MOSI are connected
+	\item Four Clock modes are available
 	\item SS: select Slave, activate MISO and signalize Start and End of Data
 	\item \textbf{SCLK: }Serial Clock
 	\item \textbf{SDO: } Serial Data Out
@@ -221,5 +222,39 @@ For this concept there are two implementations:
 \clearpage
 \pagebreak
 \subsubsection{Inter-Integrated Circuit Bus ($I^2C$)}
+\begin{minipage}{13cm}
+	\begin{itemize}
+		\item Typical Speed 100kbps, 400kbps
+		\item Maximal 127 slave addressable
+		\item Board Level Interconnection of IC Modules
+		\item Halfduplex, Multidrop Bus, bidirektional
+		\item Bus Length is expected short and limited to PCB-Level
+		\item Low-State is always dominant over High-State
+		\item I2C-Hardware provides Start/Stop, Clock Synch, Clock stretching, Bus Arbitration
+		\item Multi-Master Capability with Collision Detection and Arbitration Mechanisms
+		\item \textbf{SDA: }Serial Data
+		\item \textbf{SCL: }Serial Clock
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{6cm}
+	\includegraphics[width=6cm]{images/i2c_internal.png}
+\end{minipage}
+\includegraphics[width=14cm]{images/i2c_1.png}\\
+\begin{minipage}{13cm}
+	\begin{itemize}
+		\item Protocol contains three different conditions
+		\subitem Start condition (S) : Master takes Control and initiates a Transfer
+		\subitem Data Transfer: SCL with low-high, SDA changed only when SCL=low
+		\subitem Stop condition (P): closes a Transfer
+		\subitem Idle State
+		\item Arbitration Process determines which Master will remain in Control
+		\subitem Masters who place a Logic High-Level conflict with the Low-Level Data placed by another Master and loss Control of the I2C-Bus
+		\subitem The Master who addresses the Slave with the lowest Address wins the Arbitration Race
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{6cm}
+	\includegraphics[width=6cm]{images/i2c_2.png}
+\end{minipage}
+\includegraphics[width=16cm]{images/i2c_data.png}\\
 \clearpage
 \pagebreak
