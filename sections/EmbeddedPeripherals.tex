@@ -84,12 +84,39 @@
     \item Non-maskable: Cannot be masked through GIE-Flag, but masked through their own flag, triggerd by oscillator fault, flash key access violation
     \item Maskable: all other sources than reset \& NMI, masked by GIE-Flag, fixed priorities
 \end{itemize}
-\subsubsection{System Reset}
+\subsubsection{System Reset \embsys{311}{7.2.1}}
+\embsys{290}{6.7}
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Truly non-maskable
+        \item highest system priority
+        \item multisourced
+        \item Saves no PC nor PSW
+    \end{itemize}
+\end{multicols}
 
-
-
-\subsection{Interrupt Software Design \embsys{7.3}{315}}
-
+\begin{minipage}{0.5\linewidth}
+\subsection{Interrupt Software Design \embsys{315}{7.3}}
+    CodeBSP in Anhang \label{InterruptC}
+    \begin{enumerate}
+        \item Stack Allocation\newline
+            CPU saves SR and PC
+        \item Vector Entry Setup\newline
+            Specify entry in vector table 
+        \item Interrupt Service Routine\newline
+            make it Short and Quick\newline
+            make Register transparent \newline
+            No parameter passing or value returns\newline
+            end with a RETI
+        \item Interrupt Enable\newline
+            enable CPU GIE flag and local enables
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\subsubsection{Multisource Interrupt Hanlders \embsys{318}{7.3.3}}
+CodeBSP in Anhang \label{MultiInterruptC}\newline
+\includegraphics[width=0.6\linewidth]{images/MultiSourceISR}
+\end{minipage}
 
 \subsection{Timers and Event Counters \embsys{330}{7.4}}
 \subsubsection{Timer Structure}
