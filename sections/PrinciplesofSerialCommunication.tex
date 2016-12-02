@@ -191,34 +191,36 @@ For this concept there are two implementations:
 \end{minipage}
 \clearpage
 \pagebreak
-\subsubsection{Serial Peripheral Interface Bus (SPI)} %TODO Design?
-\begin{itemize}
-	\item Fullduplex
-	\item defines the relay of Packets between a Master and one or more Slaves only (Physical Layer of Communication)
-	\item does not specify any Data, Session, or higher-level Protocol
-	\item single Shift Register that serves as both, Receiver and Transmitter, synchronized by the Transmission Clock
-	\item limited interfaced Distance
-	\item no Error Checking Mechanism
-	\item Each Slave contain a MISO Driver which is activatet by the SS-Line
-	\item Chained Configuration: Slaves share SS and between slave MISO, MOSI are connected
-	\item Four Clock modes are available
-	\item SS: select Slave, activate MISO and signalize Start and End of Data
-	\item \textbf{SCLK: }Serial Clock
-	\item \textbf{SDO: } Serial Data Out
-	\item \textbf{SDI: } Serial Data In
-	\item \textbf{SS: }Slave Select
-	\item \textbf{MOSI: }Master Out / Slave In
-	\item \textbf{MISO: }Master In / Slave Out	
-\end{itemize}
-\textbf{Data Transfer}\\
-\begin{enumerate}
-	\item Store Data into Data Buffer, copied into Shift Register
-	\item Activate Slave Select
-	\item Common-Clocked Data-Transfer between Shift Registers
-	\item Deactivate Slave Select
-	\item Copied received Date into Data Buffer, Read Data
-\end{enumerate}
-\includegraphics[width=14cm]{images/spi.png}
+\subsubsection{Serial Peripheral Interface Bus (SPI)} 
+
+
+\begin{multicols}{2}
+    \begin{itemize}
+    	\item Fullduplex
+    	\item defines the relay of Packets between a Master and one or more Slaves only (Physical Layer of Communication)
+    	\item does not specify any Data, Session, or higher-level Protocol
+    	\item single Shift Register that serves as both, Receiver and Transmitter, synchronized by the Transmission Clock
+    	\item limited interfaced Distance
+    	\item no Error Checking Mechanism
+    	\item Each Slave contain a MISO Driver which is activatet by the SS-Line
+    	\item Chained Configuration: Slaves share SS and between slave MISO, MOSI are connected
+    	\item Four Clock modes are available
+    	\item SS: select Slave, activate MISO and signalize Start and End of Data
+    \end{itemize}
+\end{multicols}
+\begin{minipage}{0.6\linewidth}
+    \includegraphics[width=\linewidth]{images/spi.png}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+     \textbf{Data Transfer}
+    \begin{enumerate}
+    	\item Store Data into Data Buffer, copied into Shift Register
+    	\item Activate Slave Select
+    	\item Common-Clocked Data-Transfer between Shift Registers
+    	\item Deactivate Slave Select
+    	\item Copied received Date into Data Buffer, Read Data
+    \end{enumerate}
+\end{minipage}
 \clearpage
 \pagebreak
 \subsubsection{Inter-Integrated Circuit Bus ($I^2C$)}
