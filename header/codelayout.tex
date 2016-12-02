@@ -131,6 +131,21 @@
         @see},
 }
 
+\lstdefinestyle{customC}{
+    belowcaptionskip=1\baselineskip,
+    %frame=L,
+    xleftmargin=\parindent,
+    language=c,
+    basicstyle=\footnotesize\ttfamily,   
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{mygreen},
+    identifierstyle=\color{black},
+    stringstyle=\color{gray},
+    otherkeywords={           % c-Keywords
+    size_t,
+    memcpy},
+}
+
 %choose customstyle in DOC with \lstinputlisting[style=custom]{path}
 %\lstset{escapechar=@,style=customc++}
 \lstset{style=customc++}

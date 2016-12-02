@@ -42,7 +42,7 @@
 	\includegraphics[width=6cm]{images/simplex.png}& \includegraphics[width=6cm]{images/half_duplex.png}&
 	\includegraphics[width=6cm]{images/duplex.png}\\
 \end{tabular}
-\begin{multicols}{2}
+\begin{minipage}{0.2\linewidth}
 	\subsubsection{Topologies}
 	\begin{itemize}
 		\item Point-to-Point
@@ -51,6 +51,8 @@
 		\item Star
 		\item Ring
 	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
 	\subsubsection{Signaling}
 	\begin{itemize}
 		\item Single-ended signaling (asymmetrischer Signalübertragung)
@@ -58,7 +60,7 @@
 		\item Differential Signaling (symmetrischer Signalübertragung)
 		\subitem Receiving circuit responds to the electrical difference between the two signals
 	\end{itemize}
-\end{multicols}
+\end{minipage}
 	
 \clearpage
 \pagebreak
@@ -125,26 +127,30 @@
 \begin{tabular}{ccc}
 	\includegraphics[width=4cm]{images/pin_RS.png} & \includegraphics[width=6cm]{images/cable2_RS.png} & \includegraphics[width=6cm]{images/cable_RS.png}\\
 \end{tabular}
-\subsubsection{RS-422}
-\begin{itemize}
-	\item Duplex, symmetric Bus
-	\item One driver an ten Receivers
-	\item Differential Serial Link
-\end{itemize}
-\subsubsection{RS-485}
-\begin{itemize}
-	\item Bidirectional, Halfduplex Bus
-	\item allows 32 Drivers and 32 Receiver in a single Bus topology
-	\item Termination Impedance $120 \Omega$
-\end{itemize}
+\begin{multicols}{2}
+    \subsubsection{RS-422}
+    \begin{itemize}
+    	\item Duplex, symmetric Bus
+    	\item One driver an ten Receivers
+    	\item Differential Serial Link
+    \end{itemize}
+    \subsubsection{RS-485}
+    \begin{itemize}
+    	\item Bidirectional, Halfduplex Bus
+    	\item allows 32 Drivers and 32 Receiver in a single Bus topology
+    	\item Termination Impedance $120 \Omega$
+    \end{itemize}
+\end{multicols}
+
 \subsubsection{Universal Serial Bus (USB)}
 \begin{multicols}{2}
 	\includegraphics[width=8cm]{images/usb_jacks.png}\\
 	\includegraphics[width=8cm]{images/usb_voltage.png}\\
 \end{multicols}
-\subsection{Cirular Buffer}
-%TODO Maybe add some C-Code...?
+
 \begin{minipage}{12cm}
+    \subsection{Cirular Buffer}
+    CodeBSP siehe Anhang \label{CircularBuffer}
 	\begin{itemize}
 		\item UART Hardware do sends/receive information in a sequence of Bytes
 		\item After Transmission/Reception (Tx/Rx) of each Byte, UART-states are monitored in dedicated Flags
@@ -189,11 +195,10 @@ For this concept there are two implementations:
 \begin{minipage}{8cm}
 	\includegraphics[width=8cm]{images/syn.png}
 \end{minipage}
-\clearpage
-\pagebreak
+%=========================================================================
+%\clearpage
+%\pagebreak
 \subsubsection{Serial Peripheral Interface Bus (SPI)} 
-
-
 \begin{multicols}{2}
     \begin{itemize}
     	\item Fullduplex
@@ -221,8 +226,10 @@ For this concept there are two implementations:
     	\item Copied received Date into Data Buffer, Read Data
     \end{enumerate}
 \end{minipage}
-\clearpage
-\pagebreak
+%=========================================================================
+%\clearpage
+%\pagebreak
+\vspace{-1cm}
 \subsubsection{Inter-Integrated Circuit Bus ($I^2C$)}
 \begin{minipage}{13cm}
 	\begin{itemize}
@@ -234,15 +241,16 @@ For this concept there are two implementations:
 		\item Low-State is always dominant over High-State
 		\item I2C-Hardware provides Start/Stop, Clock Synch, Clock stretching, Bus Arbitration
 		\item Multi-Master Capability with Collision Detection and Arbitration Mechanisms
-		\item \textbf{SDA: }Serial Data
-		\item \textbf{SCL: }Serial Clock
+%		\item \textbf{SDA: }Serial Data
+%		\item \textbf{SCL: }Serial Clock
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{6cm}
 	\includegraphics[width=6cm]{images/i2c_internal.png}
 \end{minipage}
-\includegraphics[width=14cm]{images/i2c_1.png}\\
-\begin{minipage}{13cm}
+\includegraphics[width=12cm]{images/i2c_1.png}
+\includegraphics[width=6cm]{images/i2c_2.png}\\
+\begin{minipage}{\linewidth}
 	\begin{itemize}
 		\item Protocol contains three different conditions
 		\subitem Start condition (S) : Master takes Control and initiates a Transfer
@@ -254,23 +262,29 @@ For this concept there are two implementations:
 		\subitem The Master who addresses the Slave with the lowest Address wins the Arbitration Race
 	\end{itemize}
 \end{minipage}
-\begin{minipage}{6cm}
-	\includegraphics[width=6cm]{images/i2c_2.png}
-\end{minipage}
+%\begin{minipage}{6cm}
+%	\includegraphics[width=6cm]{images/i2c_2.png}
+%\end{minipage}
 \includegraphics[width=16cm]{images/i2c_data.png}\\
-\clearpage
-\pagebreak
+%=========================================================================
+%\clearpage
+%\pagebreak MOVED in GLOSSAR
 \subsubsection{MSP430 Serials Components}
-\begin{itemize}
-	\item USART
-	\subitem provide UART and SPI connectivity
-	\item SCI
-	\subitem Serial Communication Interface modules that provide fundamental SPI and I2C capabilities.
-	\item USI
-	\subitem Universal Serial Interface, simplest Serial Interface support only SPI and I2C
-	\item USCI
-	\subitem Universal Serial Communication Interface, with wide support for UART, SPI, and I2C modes.
-	\item USB
-\end{itemize}
+\begin{tabular}{ll}
+    USART &
+    provide UART and SPI connectivity\\
+    
+    SCI &
+	Serial Communication Interface modules that provide fundamental SPI and I2C capabilities.\\
+    
+	USI &
+	Universal Serial Interface, simplest Serial Interface support only SPI and I2C\\
+    
+	USCI &
+	Universal Serial Communication Interface, with wide support for UART, SPI, and I2C modes.\\
+    
+	USB & \\
+    
+\end{tabular}
 \clearpage
 \pagebreak
