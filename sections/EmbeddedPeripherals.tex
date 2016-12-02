@@ -120,27 +120,31 @@ CodeBSP in Anhang \label{MultiInterruptC}\newline
 
 \subsection{Timers and Event Counters \embsys{330}{7.4}}
 \subsubsection{Timer Structure}
-A Binary Counter Driven by a Periodic Signal.It is possible to cascade multiple counters\\
+A Binary Counter Driven by a Periodic Signal. It is possible to cascade multiple counters\\
 \vspace{1cm}
-\begin{minipage}{9cm}
-	\begin{itemize}
-		\item Mux -> Clock Source selector
-		\item Prescaler -> Clock frequency divider
-		\item Counter -> n-bit binary counter
-		\item Comparator -> compares Counter Output with Compare Register
-	\end{itemize}
+\begin{minipage}{0.5\linewidth}
+	\begin{tabular}{ll}
+		Mux           & Clock Source selector \\
+		Prescaler     & Clock frequency divider \\
+		Counter       & n-bit binary counter \\
+		Comparator    & compares Counter Output\\
+                      &  with Compare Register
+	\end{tabular}
 \end{minipage}
-\begin{minipage}{10cm}
-	\includegraphics[width=10cm]{images/timerstructure.png} 
+\begin{minipage}{0.5\linewidth}
+	\includegraphics[width=\linewidth]{images/timerstructure.png} 
 \end{minipage}
-\begin{multicols}{2}
+
+\begin{minipage}{0.6\linewidth}
 	\subsubsection{Interval Timer vs Event Counter}
 	\begin{itemize}
 		\item \textbf{Interval Timer}
 		\subitem Measures the time elapsed after k clock cycles
 		\item \textbf{Event Counter}
 		\subitem Counts the occurrence of k external events
-	\end{itemize}	
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
 	\subsubsection{Timer Application}
 	\begin{itemize}
 		\item Watchdog Timers (WDT)
@@ -148,7 +152,7 @@ A Binary Counter Driven by a Periodic Signal.It is possible to cascade multiple 
 		\item Baud Rate Generator (BRG)
 		\item Pulse-Width Modultation (PWM)
 	\end{itemize}
-\end{multicols}
+\end{minipage}	
 
 \textbf{Signature Timer Application \embsys{336}{7.4.3}}\newline
 \begin{tabular}{p{5cm} p{15cm}}
@@ -174,6 +178,22 @@ A Binary Counter Driven by a Periodic Signal.It is possible to cascade multiple 
     $ \text{duty cycle}=\dfrac{t_{high}}{T} $\\
 \end{tabular}
 
-
+\subsection{Embedded Memory Technologies \embsys{356}{7.5}}
+\begin{minipage}{0.5\linewidth}
+   \textbf{Control-dominated Applications}
+       \begin{itemize}
+       \item Program Memory
+       \item Data Memory
+   \end{itemize}
+    \textbf{High-performance System}
+\begin{itemize}
+    \item Program Memory
+    \item Data Memory
+    \item Data Storage
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\linewidth]{images/MemoryTech}
+\end{minipage}
 \clearpage
 \pagebreak
