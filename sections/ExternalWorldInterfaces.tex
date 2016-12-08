@@ -1,13 +1,14 @@
-\section{External World Interfaces}
-\subsection{General Purpose Input-Output Ports (GPIO)}
+\section{External World Interfaces \embsys{383}{8}}
+\subsection{General Purpose Input-Output Ports (GPIO) \embsys{383}{8.1}}
 \subsubsection{General Characteristics of I/O Ports}
 \begin{itemize}
 	\item Allow comunication with the external world
 	\item Operate digitally and can be configured as either inputs or outputs
 	\item Can be configured individually or in groups called ports
 \end{itemize}
+CodeBSP siehe Anhang \label{GPIO}
 \begin{multicols}{2}
-	\subsubsection{Structure of an Input-Output Pin}
+	\subsubsection{Structure of an Input-Output Pin \embsys{384}{8.1.1}}
 	\begin{itemize}
 		\item Input Pins, for binary Status
 		\item Output Pins, for binary Status
@@ -17,7 +18,7 @@
 	\includegraphics[width=\linewidth]{images/IOStructure}  
 \end{multicols}
 
-\subsubsection{MSP430 GPIO Registers}
+\subsubsection{MSP430 GPIO Registers \embsys{388}{8.1.3}}
 \begin{tabular}{>{\bfseries}lll}
 	PxSEL   &Port x Function Select             & Sets pin functionality  \\ 
 	PxDIR   &Port x Data Direction              & Sets pin as either IN or OUT \\ 
@@ -31,10 +32,10 @@
 	PxIV    &Port x Interrupt Vector            & Priority encoding for port Interrupts \\ 
 \end{tabular} 
 
-\subsubsection{Electrical Characteristics in I/O Pins}
+\subsubsection{Electrical Characteristics in I/O Pins \embsys{391}{8.2.1}}
 \begin{tabular}{lll}
 	$ V_{IL} $& Input Low Voltage&Maximum voltage inperpreted as low by pin input buffer\\
-	$ V_{IH} $& Input High Voltage& Minimum voltage interpreted as high by pin inpput buffer\\
+	$ V_{IH} $& Input High Voltage& Minimum voltage interpreted as high by pin input buffer\\
 	$ V_{OL} $& Output Low Voltage& Locig-low level. Minimum voltage oserved at pin outputdriver\\
 	$ V_{OH} $& Output High Voltage& Logic-high level. Maximum voltage observed at pin output driver\\
 	$ V_M $   & Pin Threshold Voltage& Ultimate level seperating low and high levels in a digital pin\\

@@ -146,6 +146,15 @@
     memcpy},
 }
 
+\lstdefinestyle{customasm}{
+    belowcaptionskip=1\baselineskip,
+    %frame=L,
+    xleftmargin=\parindent,
+    language=[x86masm]Assembler,
+    basicstyle=\footnotesize\ttfamily,
+    commentstyle=\itshape\color{mygreen},
+}
+
 %choose customstyle in DOC with \lstinputlisting[style=custom]{path}
 %\lstset{escapechar=@,style=customc++}
 \lstset{style=customc++}
