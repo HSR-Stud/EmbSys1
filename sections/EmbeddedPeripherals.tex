@@ -197,3 +197,92 @@ A Binary Counter Driven by a Periodic Signal. It is possible to cascade multiple
 \end{minipage}
 \clearpage
 \pagebreak
+%===========================================================
+
+\subsubsection{Flash Memory and Controller \embsys{361}{7.5.3}}
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item Information Section
+        \subitem non volatile data 
+        \item Main Section
+        \subitem  user programs
+        \item Bootstrap Loader
+        \subitem Intended for booting code 
+        \subitem Contains 4 segments (A..D)
+    \end{itemize}
+The size of the memory depends on device and family.
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.7\linewidth]{images/FlashOrganization}
+\end{minipage}
+
+\subsection{Bus Arbitration and DMA Transfers \embsys{364}{7.6}}
+\begin{minipage}{0.5\linewidth}
+    \subsubsection{Bus Arbitration}
+    \begin{itemize}
+        \item CPU is default bus master
+        \item Bus Arbitration Process
+        \subitem Allows switching of the bus master
+        \item Other bus master capable devices
+        \subitem DMA controllers
+        \subitem GPU
+        \subitem Math Co-processor
+        \subitem Other CPUS, multicore
+        \item Basic Steps
+        \begin{enumerate}
+            \item Request
+            \item Grant
+            \item Release
+        \end{enumerate}
+    \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\linewidth]{images/BusArbitrationTrans}
+    
+    \vspace{1cm}
+    
+    \includegraphics[width=\linewidth]{images/BusArbitrationSchem}
+\end{minipage}
+
+
+\subsubsection{DMA Transfers \embsys{367}{7.6.2}}
+\begin{minipage}{0.8\linewidth}
+        DMA is a techniue to accelerate data transfers from peripherals.\newline
+        DMA enables direct transfer from Memory without CPU Intervention
+        \begin{multicols}{2}
+            \begin{minipage}{\linewidth}
+                \textbf{DMA Transfer Modes}
+                \begin{itemize}
+                    \item Burst Mode Transfers
+                        \subitem transfers entire block of data
+                        \subitem for fast peripherals
+                    \item Cycle Stealing Transfers
+                        \subitem BAT mediates per Word
+                        \subitem for slow peripherals
+                    \item Transparent Transfers
+                        \subitem requires additional signalisation
+                        \subitem performs when CPU is inactive
+                \end{itemize}
+            \end{minipage}
+        
+            \begin{minipage}{\linewidth}
+                \textbf{DMA Transfer Types}
+                \begin{itemize}
+                    \item Two-cycle DMA Transfer
+                        \subitem Data passes through
+                        \subitem DMA data register
+                        \subitem S 370
+                    \item One-cycle DMA Transfer
+                        \subitem Direct I/O-Memory path
+                        \subitem S 372
+                \end{itemize}
+            \end{minipage}
+        \end{multicols}
+\end{minipage}
+\hspace{-1.5cm}
+\begin{minipage}{0.2\linewidth}
+    \includegraphics[width=1.5\linewidth]{images/DMAController}
+\end{minipage}
+    
+\clearpage
+\pagebreak
