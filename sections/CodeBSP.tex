@@ -1,18 +1,19 @@
 \section{CodeBsp}
-\subsection*{Circular Buffer}
+\subsection{Circular Buffer}
 Chap \ref{CircularBuffer} on Page \pageref{CircularBuffer}
 \lstinputlisting[style=customC,linewidth=\linewidth]{code/CircularBuffer.c}
 \clearpage
 
-\subsection*{Interrupt in C }
+\subsection{Interrupt}
+\subsubsection{Interrupt in C}
 Chap \ref{InterruptC} on Page \pageref{InterruptC}
 \lstinputlisting[style=customC,linewidth=\linewidth]{code/InterruptC.c}
 
-\subsection*{Multi-Interrupt in C }
+\subsubsection{Multi-Interrupt in C }
 Chap\ref{MultiInterruptC} on Page \pageref{MultiInterruptC}
 \lstinputlisting[style=customC,linewidth=\linewidth]{code/MultiInterruptC.c}
 
-\subsection*{GPIO}
+\subsection{GPIO}
 Chap \ref{GPIO} on Page \pageref{GPIO}\\
 \begin{minipage}{0.5\linewidth}
     Example 8.1 (Push-button/LED Interface) Consider an 8-bitGPIO port, denoted
@@ -29,5 +30,14 @@ Chap \ref{GPIO} on Page \pageref{GPIO}\\
 \end{minipage}
 
 \lstinputlisting[style=customasm,linewidth=\linewidth]{code/GPIO.c}
+
+\begin{minipage}{0.5\linewidth}
+    \subsection{Counting Debouncer }
+    Chap\ref{CountingDebouncer} on Page \pageref{CountingDebouncer}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.9\linewidth]{images/CountingDebouncerTiming}
+\end{minipage}
+\lstinputlisting[style=customasm,linewidth=\linewidth]{code/CountingDebouncer.c}
 
 \clearpage

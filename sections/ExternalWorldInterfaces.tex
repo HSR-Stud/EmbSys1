@@ -41,5 +41,74 @@ CodeBSP siehe Anhang \label{GPIO}
 	$ V_M $   & Pin Threshold Voltage& Ultimate level seperating low and high levels in a digital pin\\
 	&                      & Specified as $ V_m=V_{DD}/2 $ for CMOS logic\\
 \end{tabular} 
+\clearpage
+%=========================================
+
+\subsection{Interfacing Switches and Switch Arrays \embsys{402}{8.3}}
+\subsubsection{Hardware Debouncing Techniques \embsys{407}{8.3.7}}
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Reduce software complexity
+        \item Increase components on board
+    \end{itemize}
+\end{multicols}
+\textbf{Set-Reset Debouncing Circuit}\newline
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item Will debounce regardless of its bounce time
+        \item R1 and R2 are Pull-Ups
+        \item SW1 needs to be a SPDT switch.
+    \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.5\linewidth]{images/HWDebounceSR}  
+\end{minipage}
+
+\textbf{RC Debouncing Circuit}\newline
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item cost effective
+    \end{itemize}
+    \[ V_x = V_{DD}\cdot e^{-(\frac{t_{bounce}}{R_2 C_1})} \]
+    \[ (R_1 + R_2) \geq \frac{t_{bounce}}{C_1 \cdot ln(\frac{V_{DD}}{V_{DD}-V_T^+})} \]
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.5\linewidth]{images/HWDebounceRC}  
+\end{minipage}
+
+\textbf{IC Debouncing Circuit}\newline
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item Convenient for debouncing multiple switches
+    \end{itemize}
+    \includegraphics[width=0.8\linewidth]{images/HWDebounceICTiming}  
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \includegraphics[width=0.9\linewidth]{images/HWDebounceIC}  
+\end{minipage}
+\subsubsection{Software Debouncing Techniques \embsys{410}{8.3.8}}
+\begin{multicols}{2}
+\textbf{Recommendations}\newline
+\begin{itemize}
+    \item Avoid waisting cycles while waiting for bouncing end.
+        \subitem Use Low Power Mode instead
+    \item Keep SW respones short
+        \subitem Most switch bounce less than 15ms.
+    \item Humans can detect response delays with 75ms
+\end{itemize}
+
+\columnbreak
+\textbf{Soulutions}\newline
+\begin{itemize}
+    \item Remove Switch Transient via Time Delays
+        \subitem consumes CPU cycles
+    \item Polling Debouncer
+        \subitem Pol the switch with $ t_{poll} > t_{bounce} $
+    \item Conuting Debouncer
+        \subitem Assumes switch has settled when no bounc is detected for n samples
+        \subitem If a bounce were detected bofore n, the counter restarts 
+        \subitem Siehe CodeBSP in Anhang \label{CountingDebouncer}     
+\end{itemize}
+\end{multicols}
 
 \clearpage
