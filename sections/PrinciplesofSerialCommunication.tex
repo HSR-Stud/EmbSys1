@@ -105,8 +105,7 @@
 \begin{minipage}{9cm}
 	\includegraphics[width=9cm]{images/uart.png}
 \end{minipage}
-\clearpage
-\pagebreak
+
 \subsubsection{RS-232}
 \begin{minipage}{10cm}
 	\begin{itemize}
@@ -170,6 +169,8 @@ When Bytes need to be sent Bytes are placed into the Tx-Ring-Buffer Tx ISRs are 
 If the UART is ready to send a Byte an TX Interrupt occurs and the ISR extracts the "oldest" (least recent) Byte from the Tx-Ring-Buffer. The byte is then output to the UART.\\
 \includegraphics[width=8cm]{images/tx_buffer.png}
 \end{multicols}
+\clearpage
+
 \subsubsection{Flow Control}
 To avoid allocating very large buffers, flow control can be introduced.
 The Receiver can notify the remote sender that the receiver's buffer is getting full.
@@ -227,7 +228,7 @@ For this concept there are two implementations:
     \end{enumerate}
 \end{minipage}
 %=========================================================================
-%\clearpage
+\clearpage
 %\pagebreak
 \vspace{-1cm}
 \subsubsection{Inter-Integrated Circuit Bus ($I^2C$)}
@@ -267,8 +268,8 @@ For this concept there are two implementations:
 %\end{minipage}
 \includegraphics[width=16cm]{images/i2c_data.png}\\
 %=========================================================================
-%\clearpage
-%\pagebreak MOVED in GLOSSAR
+
+
 \subsubsection{MSP430 Serials Components}
 \begin{tabular}{ll}
     USART &
