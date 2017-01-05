@@ -4,9 +4,9 @@
     \begin{itemize}
     	\item A signal indicating an event, which needs immediate CPU attention
     	\item More efficient event handling than polling
-    	\item IRQ $\rightarrow$ Interrupt Service Request
-    	\item ISR $\rightarrow$ Interrupt Service Routine
-    	\item SRQ $\rightarrow$ Service Request
+    	\item \acs{IRQ} $\rightarrow$ Interrupt Service Request
+    	\item \acs{ISR} $\rightarrow$ Interrupt Service Routine
+    	\item \acs{SRQ} $\rightarrow$ Service Request
     \end{itemize}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
@@ -14,27 +14,25 @@
     \begin{tabular}{ll}
     	\textbf{Hardware Trigger}& Rising-Edge, Falling-Edge, Logic Level\\
     	\textbf{Software Trigger}& Software Event in Userprogram\\
-    	\textbf{CPU Exception}& CPU State, Divison by Zero, Overflow etc.\\
+    	\textbf{\acs{CPU} Exception}& \acs{CPU} State, Divison by Zero, Overflow etc.\\
     \end{tabular}
 \end{minipage}
 
 \subsubsection{Maskable vs Non-maskable Interrupt}
 \begin{tabular}{ll}
-	\textbf{Maskable Interrupt}& Can be blocked through the GIE flag\\
+	\textbf{Maskable Interrupt}& Can be blocked through the \acs{GIE} flag\\
 	& Most commen Type of interrupt\\
-	\textbf{Non-maskable Interrupt (NMI)}& Cannot be blocked, always served\\
+	\textbf{Non-maskable Interrupt (\acs{NMI})}& Cannot be blocked, always served\\
 	& Reserved for system critical events\\
 \end{tabular}
-
-
 
 \begin{minipage}{11cm}
         \subsubsection{Interrupt Identification Method \embsys{300}{7.1.1}}
     \begin{itemize}
 		\item \textbf{Non-vectored Interrupt}
 		\subitem Single Interrupt Line
-		\subitem Single ISR for all devices
-		\subitem CPU identifies source by polling service request (SRQ) flags
+		\subitem Single \acs{ISR} for all devices
+		\subitem \acs{CPU} identifies source by polling service request (\acs{SRQ}) flags
     \end{itemize}
 \end{minipage}	
 	\begin{minipage}{8cm}
@@ -43,9 +41,9 @@
 	\begin{minipage}{11cm}
             \begin{itemize}
 		\item \textbf{Vectored Interrupt}
-		\subitem Require an interrupt Acknowledgment (INTA) cycle
-		\subitem Interface generate an ID number (vector) upon INTA
-		\subitem ID Number allows calculating ISR location
+		\subitem Require an interrupt Acknowledgment (\acs{INTA}) cycle
+		\subitem Interface generate an ID number (vector) upon \acs{INTA}
+		\subitem ID Number allows calculating \acs{ISR} location
     \end{itemize}
 	\end{minipage}
 		\begin{minipage}{8cm}
@@ -53,18 +51,18 @@
 	\end{minipage}
     \begin{itemize}
 	\item \textbf{Auto-vectored}
-	\subitem Each device has a fixed vector or ISR adress
-	\subitem No INTA cycle or vector issuing required
-	\subitem CPU loads direct ISR address into PC to execute ISR
+	\subitem Each device has a fixed vector or \acs{ISR} adress
+	\subitem No \acs{INTA} cycle or vector issuing required
+	\subitem \acs{CPU} loads direct \acs{ISR} address into \acs{PC} to execute \acs{ISR}
 \end{itemize}
 
 \begin{minipage}{0.6\linewidth}
     \subsubsection{Interrupt Priority Handling \embsys{306}{7.1.5}}
     \begin{itemize}
     	\item Non-vectored Interrupt
-    	\subitem Polling order of SRQ flags decides priority
+    	\subitem Polling order of \acs{SRQ} flags decides priority
     	\item Vectored Interrupt
-    	\subitem Daisy-Chain:All devices in serie. The closer the device to the CPU the higher the priority
+    	\subitem Daisy-Chain: All devices in serie. The closer the device to the \acs{CPU} the higher the priority
     	\subitem Interrupted Controlled: Uses central arbiter for resolving priorities
     \end{itemize}
 \end{minipage}
@@ -73,51 +71,40 @@
 \end{minipage}
 \clearpage
 \pagebreak
-%===========================================================
+
 \subsubsection{Interrupt Service Sequence \embsys{303}{7.1.3}}
 \includegraphics[width=16cm]{images/iss.png}
 
 \subsection{Interrupthandling in the MSP430 \embsys{310}{7.2}}
 \begin{itemize}
     \item Auto-vectored and Daisy-Chain
-    \item System Resets: Highest priority, non-maskable, triggerd by Watchdog, Power-UP
-    \item Non-maskable: Cannot be masked through GIE-Flag, but masked through their own flag, triggerd by oscillator fault, flash key access violation
-    \item Maskable: all other sources than reset \& NMI, masked by GIE-Flag, fixed priorities
+    \item System Resets: Highest priority, non-maskable, triggerd by Watchdog, Power-uP
+    \item Non-maskable: Cannot be masked through \acs{GIE}-Flag, but masked through their own flag, triggerd by oscillator fault, flash key access violation
+    \item Maskable: all other sources than reset \& \acs{NMI}, masked by \acs{GIE}-Flag, fixed priorities
 \end{itemize}
 \subsubsection{System Reset \embsys{311}{7.2.1}}
-\embsys{290}{6.7}
-\begin{multicols}{2}
     \begin{itemize}
         \item Truly non-maskable
         \item highest system priority
         \item multisourced
-        \item Saves no PC nor PSW
+        \item Saves no \acs{PC} nor \acs{PSW}
     \end{itemize}
-\end{multicols}
 
-\begin{minipage}{0.5\linewidth}
 \subsection{Interrupt Software Design \embsys{315}{7.3}}
     CodeBSP in Anhang \label{InterruptC}
     \begin{enumerate}
         \item Stack Allocation\newline
-            CPU saves SR and PC
+            \acs{CPU} saves \acs{SR} and \acs{PC}
         \item Vector Entry Setup\newline
             Specify entry in vector table 
         \item Interrupt Service Routine\newline
             make it Short and Quick\newline
             make Register transparent \newline
             No parameter passing or value returns\newline
-            end with a RETI
+            end with a \acs{RETI}
         \item Interrupt Enable\newline
-            enable CPU GIE flag and local enables
+            enable \acs{CPU} \acs{GIE} flag and local enables
     \end{enumerate}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-\subsubsection{Multisource Interrupt Hanlders \embsys{318}{7.3.3}}
-CodeBSP in Anhang \label{MultiInterruptC}\newline
-\includegraphics[width=0.6\linewidth]{images/MultiSourceISR}
-\end{minipage}
-
 \clearpage
 
 \subsection{Timers and Event Counters \embsys{330}{7.4}}
@@ -136,47 +123,36 @@ A Binary Counter Driven by a Periodic Signal. It is possible to cascade multiple
 \begin{minipage}{0.5\linewidth}
 	\includegraphics[width=\linewidth]{images/timerstructure.png} 
 \end{minipage}
-
-\begin{minipage}{0.6\linewidth}
-	\subsubsection{Interval Timer vs Event Counter}
+\vspace{-1.5cm}
+\subsubsection{Interval Timer vs Event Counter}
 	\begin{itemize}
 		\item \textbf{Interval Timer}
 		\subitem Measures the time elapsed after k clock cycles
 		\item \textbf{Event Counter}
 		\subitem Counts the occurrence of k external events
 	\end{itemize}
-\end{minipage}
-\begin{minipage}{0.6\linewidth}
-	\subsubsection{Timer Application}
-	\begin{itemize}
-		\item Watchdog Timers (WDT)
-		\item Realtime Clocks (RTC)
-		\item Baud Rate Generator (BRG)
-		\item Pulse-Width Modultation (PWM)
-	\end{itemize}
-\end{minipage}	
 
-\textbf{Signature Timer Application \embsys{336}{7.4.3}}\newline
-\begin{tabular}{p{5cm} p{15cm}}
-	\textbf{Watchdog Timer } &
+\subsubsection{Timer Application \embsys{336}{7.4.3}}
+\begin{tabular}{p{6cm} p{15cm}}
+	\textbf{Watchdog Timer (\acs{WDT})} &
     Monitor Events within an expiration intervals\newline
-	 If WDT expires before the event occurs, a default action is executed\newline
+	 If \acs{WDT} expires before the event occurs, a default action is executed\newline
 	 If the event occurs within the defined interval, cancel and restart WDT\newline
-	 In MSP430 the WDT is 16-Bit (MaxCount: $2^{16}=32'768$) \newline
+	 In MSP430 the \acs{WDT} is 16-Bit (MaxCount: $2^{16}=32'768$) \newline
 	 and configure over Register WDTTMSEL\\
      
-	\textbf{Realtime Clocks} &
+	\textbf{Realtime Clocks (\acs{RTC})} &
     32-bit Timer with selectable Clock-Source\newline
-    Can be used as calendar or counter (H.Min.Sec)\newline
+    Can be used as calendar or counter (Hour.Minutes.Second)\newline
     The accuracy depend greatly on the used Cristal\\
     
-	\textbf{Baud Rate Generator} &
+	\textbf{Baud Rate Generator (\acs{BRG})} &
      $ \text{Baud Rate}=\dfrac{f_{clk}}{PS \cdot TopCount} $\newline
      PS=Prescaler Value \quad TC= Compare Value\newline
      Directly impacts Bit Time on serial communication\\
      
-	\textbf{Pulse-Width Modulation} &
-    Produces a Signal which duty cycle is controlled by the MCU \newline
+	\textbf{Pulse-Width Modulation (\acs{PWM})} &
+    Produces a Signal which duty cycle is controlled by the \acs{MCU} \newline
     $ \text{duty cycle}=\dfrac{t_{high}}{T} $\\
 \end{tabular}
 
@@ -218,18 +194,18 @@ The size of the memory depends on device and family.
     \includegraphics[width=0.7\linewidth]{images/FlashOrganization}
 \end{minipage}
 
-\subsection{Bus Arbitration and DMA Transfers \embsys{364}{7.6}}
+\subsection{Bus Arbitration and \acs{DMA} Transfers \embsys{364}{7.6}}
 \begin{minipage}{0.5\linewidth}
     \subsubsection{Bus Arbitration}
     \begin{itemize}
-        \item CPU is default bus master
+        \item \acs{CPU} is default bus master
         \item Bus Arbitration Process
         \subitem Allows switching of the bus master
         \item Other bus master capable devices
-        \subitem DMA controllers
-        \subitem GPU
+        \subitem \acs{DMA} controllers
+        \subitem \acs{GPU}
         \subitem Math Co-processor
-        \subitem Other CPUS, multicore
+        \subitem Other CPU's, multicore
         \item Basic Steps
         \begin{enumerate}
             \item Request
@@ -239,18 +215,15 @@ The size of the memory depends on device and family.
     \end{itemize}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-    \includegraphics[width=\linewidth]{images/BusArbitrationTrans}
-    
-    \vspace{1cm}
-    
+    \includegraphics[width=\linewidth]{images/BusArbitrationTrans}    
+    \vspace{1cm}    
     \includegraphics[width=\linewidth]{images/BusArbitrationSchem}
 \end{minipage}
 
-
 \subsubsection{DMA Transfers \embsys{367}{7.6.2}}
 \begin{minipage}{0.8\linewidth}
-        DMA is a techniue to accelerate data transfers from peripherals.\newline
-        DMA enables direct transfer from Memory without CPU Intervention
+       Direct Memory Access (\acs{DMA}) is a function to accelerate data transfers from peripherals.\newline
+       \acs{DMA} enables direct transfer from Memory without CPU Intervention
         \begin{multicols}{2}
             \begin{minipage}{\linewidth}
                 \textbf{DMA Transfer Modes}
@@ -263,20 +236,20 @@ The size of the memory depends on device and family.
                         \subitem for slow peripherals
                     \item Transparent Transfers
                         \subitem requires additional signalisation
-                        \subitem performs when CPU is inactive
+                        \subitem performs when \acs{CPU} is inactive
                 \end{itemize}
             \end{minipage}
         
             \begin{minipage}{\linewidth}
-                \textbf{DMA Transfer Types}
+                \textbf{\acs{DMA} Transfer Types}
                 \begin{itemize}
-                    \item Two-cycle DMA Transfer
+                    \item Two-cycle \acs{DMA} Transfer
                         \subitem Data passes through
-                        \subitem DMA data register
-                        \subitem S 370
-                    \item One-cycle DMA Transfer
-                        \subitem Direct I/O-Memory path
-                        \subitem S 372
+                        \subitem \acs{DMA} data register
+                        \subitem S. 370
+                    \item One-cycle \acs{DMA} Transfer
+                        \subitem Direct \acs{I/O}-Memory path
+                        \subitem S. 372
                 \end{itemize}
             \end{minipage}
         \end{multicols}

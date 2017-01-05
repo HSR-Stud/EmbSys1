@@ -12,9 +12,8 @@ CodeBSP siehe Anhang \label{GPIO}
 	\begin{itemize}
 		\item Input Pins, for binary Status
 		\item Output Pins, for binary Status
-		\item GPIO Interfaces, for General IN or OUT
-	\end{itemize}
-	
+		\item \acs{GPIO} Interfaces, for General IN or OUT
+	\end{itemize}	
 	\includegraphics[width=\linewidth]{images/IOStructure}  
 \end{multicols}
 
@@ -45,6 +44,36 @@ CodeBSP siehe Anhang \label{GPIO}
 %=========================================
 
 \subsection{Interfacing Switches and Switch Arrays \embsys{402}{8.3}}
+\subsubsection{Switches and Buttons}
+	Mechanical Contact with two States (Open, Closed). Each State of the Switches has to translate into a Valid Logic Level. 
+	\begin{itemize}
+		\item \textbf{Pull-Down}
+		\subitem Pull-down bezeichnet einen hochohmigen Widerstand, der eine Signalleitung mit dem niedrigeren Spannungs-Potential verbindet. Durch ihn wird die Leitung auf das niedrige Potential gebracht, für den Fall, dass kein Ausgang die Leitung aktiv auf ein höheres Potential bringt.
+		\item \textbf{Pull-Up}
+		\subitem Pull-up bezeichnet einen hochohmigen Widerstand, der eine Signalleitung mit dem höheren Spannungs-Potential verbindet. Durch ihn wird die Leitung auf das höhere Potential gebracht, für den Fall, dass kein Ausgang die Leitung aktiv auf ein niedrigeres Potential bringt.
+	\end{itemize}
+	\includegraphics[width=0.6\linewidth]{images/Coding_SW_BT.jpg}
+\begin{multicols}{2}
+	\textbf{Switches}\\
+	\includegraphics[width=0.6\linewidth]{images/Switches.jpg}\\
+	\textbf{Momentary Push Buttons}\\
+	\includegraphics[width=0.6\linewidth]{images/Buttons.jpg}
+\end{multicols}
+\subsubsection{Switch Arrays and Keypads}
+\begin{multicols}{2}
+	\begin{itemize}
+		\item \textbf{Switch Arrays}
+		\subitem Contains 2 to 8 SPST Switches
+		\subitem Interfaced individually
+		\subitem Interpreted as a whole number
+		\includegraphics[width=0.3\linewidth]{images/Switch_Array.jpg}  
+		\item \textbf{Keypads}
+		\subitem Matrix Switch Arrays
+		\subitem Interfaced via rwo-column arragement
+		\subitem Interpreted as a scan-return code 
+		\includegraphics[width=0.5\linewidth]{images/Keypad.jpg}
+	\end{itemize}
+\end{multicols}
 \subsubsection{Hardware Debouncing Techniques \embsys{407}{8.3.7}}
 \begin{multicols}{2}
     \begin{itemize}
@@ -88,7 +117,7 @@ CodeBSP siehe Anhang \label{GPIO}
 \end{minipage}
 \subsubsection{Software Debouncing Techniques \embsys{410}{8.3.8}}
 \begin{multicols}{2}
-\textbf{Recommendations}\newline
+\textbf{Recommendations}
 \begin{itemize}
     \item Avoid waisting cycles while waiting for bouncing end.
         \subitem Use Low Power Mode instead
@@ -96,19 +125,34 @@ CodeBSP siehe Anhang \label{GPIO}
         \subitem Most switch bounce less than 15ms.
     \item Humans can detect response delays with 75ms
 \end{itemize}
-
 \columnbreak
-\textbf{Soulutions}\newline
+\textbf{Solutions}
 \begin{itemize}
     \item Remove Switch Transient via Time Delays
-        \subitem consumes CPU cycles
+        \subitem consumes \acs{CPU} cycles
     \item Polling Debouncer
         \subitem Pol the switch with $ t_{poll} > t_{bounce} $
-    \item Conuting Debouncer
-        \subitem Assumes switch has settled when no bounc is detected for n samples
+    \item Counting Debouncer
+        \subitem Assumes switch has settled when no bounce is detected for n samples
         \subitem If a bounce were detected bofore n, the counter restarts 
         \subitem Siehe CodeBSP in Anhang \label{CountingDebouncer}     
 \end{itemize}
 \end{multicols}
-
+\subsection{Interfacing LEDs}
+\begin{itemize}
+	\item Discrete \acs{LED}s
+	\subitem Requires a current and driving circuit
+	\item Numeric Display (Seven-Segment Modules)
+	\subitem Array of 7 bar-shaped \acs{LED} forms digits from 0 to 9
+	\subitem Each digit needs to be refreshed at 24 Hz
+	\item Alphanumeric Displays
+	\subitem Able to produce numbers and alphabetic characters
+	\item Graphic Panels
+	\subitem Pixel addressable Panels
+\end{itemize}
+\subsection{Interfacing \acs{LCD}s}
+\begin{itemize}
+	\item Liquid Crystal Displays (\acs{LCD}) use the property of liquid crystal materials of twisting the polarization angle of coherent light
+	\item Thin Film Transistor (\acs{TFT}) uses row column cell
+\end{itemize}
 \clearpage

@@ -1,4 +1,4 @@
-\section{Principles of Serial Communication}
+\section{Principles of Serial Communication \embsys{475}{9}}
 \vspace{-.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
@@ -22,9 +22,9 @@
 		\item Broad variaton of Protocols and Formats
 		\item Bits are transmitted and received one after another
 		\item longer time for sending bits $n\cdot t_{bit}$
-		\item Single Ended Link: Two Wires (Link, GND)
+		\item Single Ended Link: Two Wires (Link, \acs{GND})
 		\item Differential Link Channel: Two Wires with Voltage Difference
-		\item USB, RS232, RS485, Bluetooth, Ethernet, I2C, SATA...
+		\item \acs{USB}, RS232, RS485, Bluetooth, Ethernet, \acs{I2C}, \acs{SATA}...
 	\end{itemize}
 \subsubsection{Parallel Data Channels}
 	\begin{itemize}
@@ -38,7 +38,7 @@
 	\textbf{Simplex}&\textbf{Half-Duplex} &\textbf{Duplex}\\
 	Unidirectional Link&  One Bidirectional Link& Two separate Bidirectional Link\\
 	Only one Direction & both Directions & both Directions\\
-	No ACK of Data & one Direction at one Time & Simultaneous Communication\\
+	No \acs{ACK} of Data & one Direction at one Time & Simultaneous Communication\\
 	\includegraphics[width=6cm]{images/simplex.png}& \includegraphics[width=6cm]{images/half_duplex.png}&
 	\includegraphics[width=6cm]{images/duplex.png}\\
 \end{tabular}
@@ -65,18 +65,22 @@
 \clearpage
 \pagebreak
 \subsection{Asynchronous Serial Communication \embsys{479}{9.3.1}}
-\includegraphics[width=8cm]{images/asyn.png}
-\begin{itemize}
-	\item Synchronous Communication the clock is send with data
-	\item Independent Clock at both Ends	
-	\item Clocks must be synchronized regularly
-	\item Each Package consiist of Header (begin Data), Body (Data), Footer (delimits the Packet)
-	\item Same Data rate at both Ends
-	\item Falling Edge of Startbit starts Sampling at RX
-	\item Receiver Samples in the middle of each Bit
-	\item If RX runs too fast then ends in incorrect Datagram
-	\item Bad Rate Erros of $2\%$ to $4\%$ are tolerable
-\end{itemize}
+\begin{minipage}{12cm}
+	\begin{itemize}
+		\item Asynchronous Channels: Independent Clock at both Ends	
+		\item Clocks must be synchronized regularly
+		\item Each Package contains of Header (begin Data), Body (Data), Footer (delimits the Packet)
+		\item Same Data rate at both Ends
+		\item Falling Edge of Startbit starts Sampling at RX
+		\item Receiver Samples in the middle of each Bit
+		\item If RX runs too fast then ends in incorrect Datagram
+		\item Bad Rate Erros of $2\%$ to $4\%$ are tolerable
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{7cm}
+	\includegraphics[width=7cm]{images/asyn.png}
+\end{minipage}
+
 \subsubsection{Error Detection Mechanism}
 \begin{itemize}
 	\item Even Parity: If the number of "'1"' is even (gerade) in the bit string then the paritybit is even \newline If for the data communciation even parity given then paritybit is "'0"' for even and "'1"' for odd. 
@@ -84,22 +88,22 @@
 	\item Parity Bit: can be configured to Even, Odd, None, Mark, Space
 	\item Stop Bit: marks the End of the Transmission, always Mark
 \end{itemize}
-\subsubsection{Universal Asynchronous Receiver Transmitter (UART)}
+\subsubsection{Universal Asynchronous Receiver Transmitter (\acs{UART})}
 \begin{minipage}{10cm}
 	\begin{itemize}
 		\item convert Data from Parallel to Serial and viceversa
-		\item allow the CPU to communicate through the Serial Channel
+		\item allow the \acs{CPU} to communicate through the Serial Channel
 		\item Logic Levels, Positive Logic Level (1=high, 0=low)
-		\item USART: Asynchronous and Synchronous Communications Channels in one single Serial Interface Module
+		\item \acs{USART}: Asynchronous and Synchronous Communications Channels in one single Serial Interface Module
 		\item Choosing the clock source $N=\frac{f_{clk}}{BR}$
 		\item Configuring the baud rate generator
 		\item Choosing and configuring parity check, stop bit length
-		\item \textbf{DSR: }Data Set is Ready
-		\item \textbf{DTR: }Data Terminal is Ready
-		\item \textbf{RTS: }Request to Send
-		\item \textbf{CTS: }Clear to Send
-		\item \textbf{TxD: }Transmitted Data
-		\item \textbf{RxD: }Received Data
+		\item \textbf{\acs{DSR}: }Data Set is Ready
+		\item \textbf{\acs{DTR}: }Data Terminal is Ready
+		\item \textbf{\acs{RTS}: }Request to Send
+		\item \textbf{\acs{CTS}: }Clear to Send
+		\item \textbf{\acs{TxD}: }Transmitted Data
+		\item \textbf{\acs{RxD}: }Received Data
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{9cm}
@@ -110,7 +114,7 @@
 \begin{minipage}{10cm}
 	\begin{itemize}
 		\item asynchrone and Point to Point Link
-		\item One symbol consist of 5 to 9 Bit, often ASCII-Code (7 or 8 Bit per Symbol)
+		\item One symbol consist of 5 to 9 Bit, often \acs{ASCII}-Code (7 or 8 Bit per Symbol)
 		\item Physical Voltages, Negative Logic
 		\item $1=-25V \quad to \quad -3V$\newline
 		$0=+25V\quad to \quad +3V$
@@ -141,7 +145,7 @@
     \end{itemize}
 \end{multicols}
 
-\subsubsection{Universal Serial Bus (USB)}
+\subsubsection{Universal Serial Bus (\acs{USB})}
 \begin{multicols}{2}
 	\includegraphics[width=8cm]{images/usb_jacks.png}\\
 	\includegraphics[width=8cm]{images/usb_voltage.png}\\
@@ -161,11 +165,11 @@
 \end{minipage}
 \begin{multicols}{2}
 \subsubsection{RX Implementation}
-When Bytes are received Rx ISR reads the Byte from the UART in Rx-Ring-Buffer and places data in Ringbuffer. \\
+When Bytes are received Rx \acs{ISR} reads the Byte from the \acs{UART} in Rx-Ring-Buffer and places data in Ringbuffer. \\
 The User Application reads received Byte from the Rx-Ring-Buffer. The "oldest" Byte (least recent Byte) is extracted first from the Rx-Ring-Buffer.\\
 \includegraphics[width=8cm]{images/rx_buffer.png}
 \subsubsection{TX Implementation}
-When Bytes need to be sent Bytes are placed into the Tx-Ring-Buffer Tx ISRs are enabled after putting a Byte into the Tx-Ring-Buffer. \\
+When Bytes need to be sent Bytes are placed into the Tx-Ring-Buffer Tx \acs{ISR} are enabled after putting a Byte into the Tx-Ring-Buffer. \\
 If the UART is ready to send a Byte an TX Interrupt occurs and the ISR extracts the "oldest" (least recent) Byte from the Tx-Ring-Buffer. The byte is then output to the UART.\\
 \includegraphics[width=8cm]{images/tx_buffer.png}
 \end{multicols}
@@ -177,11 +181,11 @@ The Receiver can notify the remote sender that the receiver's buffer is getting 
 The remote sender would then hold off with its transmission until the receiver empties out the buffer and notifies the sender that it can proceed.
 For this concept there are two implementations:
 \begin{itemize}
-	\item \textbf{XON-XOFF} uses ASCII characters
+	\item \textbf{XON-XOFF} uses \acs{ASCII} characters
 	\subitem DC1 (0x11) for XON, send more data
 	\subitem DC3 (0x13) for XOFF, don't send more
 	\item \textbf{RS-232} use lines of RS-232
-	\subitem RTS, CTS, DSR, DTR allowing to send data
+	\subitem \acs{RTS}, \acs{CTS}, \acs{DSR}, \acs{DTR} allowing to send data
 \end{itemize}
 \subsection{Synchronous Serial Communication \embsys{498}{9.4}}
 \begin{minipage}{11cm}
@@ -199,7 +203,7 @@ For this concept there are two implementations:
 %=========================================================================
 %\clearpage
 %\pagebreak
-\subsubsection{Serial Peripheral Interface Bus (SPI)} 
+\subsubsection{Serial Peripheral Interface Bus (\acs{SPI})} 
 \begin{multicols}{2}
     \begin{itemize}
     	\item Fullduplex
@@ -208,10 +212,10 @@ For this concept there are two implementations:
     	\item single Shift Register that serves as both, Receiver and Transmitter, synchronized by the Transmission Clock
     	\item limited interfaced Distance
     	\item no Error Checking Mechanism
-    	\item Each Slave contain a MISO Driver which is activatet by the SS-Line
-    	\item Chained Configuration: Slaves share SS and between slave MISO, MOSI are connected
+    	\item Each Slave contain a \acs{MISO} Driver which is activatet by the \acs{SS}-Line
+    	\item Chained Configuration: Slaves share \acs{SS} and between slave \acs{MISO}, \acs{MOSI} are connected
     	\item Four Clock modes are available
-    	\item SS: select Slave, activate MISO and signalize Start and End of Data
+    	\item \acs{SS}: select Slave, activate \acs{MISO} and signalize Start and End of Data
     \end{itemize}
 \end{multicols}
 \begin{minipage}{0.6\linewidth}
@@ -240,10 +244,10 @@ For this concept there are two implementations:
 		\item Halfduplex, Multidrop Bus, bidirektional
 		\item Bus Length is expected short and limited to PCB-Level
 		\item Low-State is always dominant over High-State
-		\item I2C-Hardware provides Start/Stop, Clock Synch, Clock stretching, Bus Arbitration
+		\item \acs{I2C}-Hardware provides Start/Stop, Clock Synch, Clock stretching, Bus Arbitration
 		\item Multi-Master Capability with Collision Detection and Arbitration Mechanisms
-%		\item \textbf{SDA: }Serial Data
-%		\item \textbf{SCL: }Serial Clock
+		\item \textbf{\acs{SDA}: }Serial Data
+		\item \textbf{\acs{SCL}: }Serial Clock
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{6cm}
@@ -255,36 +259,34 @@ For this concept there are two implementations:
 	\begin{itemize}
 		\item Protocol contains three different conditions
 		\subitem Start condition (S) : Master takes Control and initiates a Transfer
-		\subitem Data Transfer: SCL with low-high, SDA changed only when SCL=low
+		\subitem Data Transfer: \acs{SCL} with low-high, \acs{SDA} changed only when SCL=low
 		\subitem Stop condition (P): closes a Transfer
 		\subitem Idle State
 		\item Arbitration Process determines which Master will remain in Control
-		\subitem Masters who place a Logic High-Level conflict with the Low-Level Data placed by another Master and loss Control of the I2C-Bus
+		\subitem Masters who place a Logic High-Level conflict with the Low-Level Data placed by another Master and loss Control of the \acs{I2C}-Bus
 		\subitem The Master who addresses the Slave with the lowest Address wins the Arbitration Race
 	\end{itemize}
 \end{minipage}
-%\begin{minipage}{6cm}
-%	\includegraphics[width=6cm]{images/i2c_2.png}
-%\end{minipage}
+
 \includegraphics[width=16cm]{images/i2c_data.png}\\
 %=========================================================================
 
 
 \subsubsection{MSP430 Serials Components}
 \begin{tabular}{ll}
-    USART &
-    provide UART and SPI connectivity\\
+    \acs{USART} &
+    provide \acs{UART} and \acs{SPI} connectivity\\
     
-    SCI &
-	Serial Communication Interface modules that provide fundamental SPI and I2C capabilities.\\
+    \acs{SCI} &
+	Serial Communication Interface modules that provide fundamental \acs{SPI} and \acs{I2C} capabilities.\\
     
-	USI &
-	Universal Serial Interface, simplest Serial Interface support only SPI and I2C\\
+	\acs{USI} &
+	Universal Serial Interface, simplest Serial Interface support only \acs{SPI} and \acs{I2C}\\
     
-	USCI &
-	Universal Serial Communication Interface, with wide support for UART, SPI, and I2C modes.\\
+	\acs{USCI} &
+	Universal Serial Communication Interface, with wide support for \acs{UART}, \acs{SPI}, and \acs{I2C} modes.\\
     
-	USB & \\
+	\acs{USB} & Universal Serial Bus\\
     
 \end{tabular}
 \clearpage

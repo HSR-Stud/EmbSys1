@@ -16,7 +16,7 @@
 \subsection{Power Sources \embsys{250}{6.2}}
 \begin{minipage}{13cm}
 \begin{itemize}
-	\item Provide Power to CPU and its peripherals
+	\item Provide Power to \acs{CPU} and its peripherals
 	\item Require Steady Voltage
 	\item Establish reference Levels for internal Operations
 	\item Absolute Maximum Ratings
@@ -25,7 +25,7 @@
 	\subitem Do Not design operating device at these levels
 	\item Recommended Operating Conditions
 	\subitem Conditions where the device operats normal
-	\item a typical MCU Power Supply consist of a Unregulated Power Source and then for each peripheral interface with a Voltage Regulator
+	\item a typical \acs{MCU} Power Supply consist of a Unregulated Power Source and then for each peripheral interface with a Voltage Regulator
 \end{itemize}
 \end{minipage}
 \begin{minipage}{5cm}
@@ -37,9 +37,9 @@
 \begin{minipage}{13cm}
 	\begin{itemize}
 		\item Power-Speed Tradeoff, link between frequency and power transfer
-		\item Choose IC's with same Voltage as MCU
+		\item Choose \acs{IC}'s with same Voltage as \acs{MCU}
 		\item For different IC Voltage Level, fix with Pull Up/Down Resistor
-		\item For Noise Control use Capacitor between V and GND
+		\item For Noise Control use Capacitor between V and \acs{GND}
         \subitem  $ \rightarrow $ act as a low-pass filter
 		\item Isolate Power Sourcees from the Rest of the Circuit
 		\item Route separately analog and digital lines 
@@ -71,7 +71,7 @@
 \begin{minipage}{11cm}
 	\begin{itemize}
 		\item Programming for Low-Power: Initalize, Activate interrupts, Enable Low Power Mode
-		\item Interrupt wake CPU, all task performed with interrupts
+		\item Interrupt wake \acs{CPU}, all task performed with interrupts
 	\end{itemize}
 \end{minipage}
 		\begin{minipage}{8cm}
@@ -81,17 +81,17 @@
 	\hline
 	\textbf{Mode} & \textbf{CPU \& Clock Status}\\
 	\hline
-	Active & CPU and all clocks enabled\\
+	Active & \acs{CPU} and all clocks enabled\\
 	\hline
-	LPM0 & CPU, MCLK disabled, SMCLK, ACLK enabled \\
+	LPM0 & \acs{CPU}, \acs{MCLK} disabled, \acs{SMCLK}, \acs{ACLK} enabled \\
 	\hline
-	LPM1 & CPU \& MCLK disabled, DCO, DC Generator off if DCO not used for SMCLK, ACLK enabled\\
+	LPM1 & \acs{CPU} \& \acs{MCLK} disabled, \acs{DCO}, \acs{DC} Generator off if \acs{DCO} not used for \acs{SMCLK}, \acs{ACLK} enabled\\
 	\hline
-	LPM2 & CPU, MCLK, SMCLK, DCO disabled, DC Generator \& ACLK enabled\\
+	LPM2 & \acs{CPU}, \acs{MCLK}, \acs{SMCLK}, \acs{DCO} disabled, \acs{DC} Generator \& \acs{ACLK} enabled\\
 	\hline
-	LPM3 & CPU, MCLK, SMCLK, DCO, DC Generator disabled, ACLK enabled\\
+	LPM3 & \acs{CPU}, \acs{MCLK}, \acs{SMCLK}, \acs{DCO}, \acs{DC} Generator disabled, \acs{ACLK} enabled\\
 	\hline
-	LPM4 & CPU and all clocks disabled\\
+	LPM4 & \acs{CPU} and all clocks disabled\\
 	\hline	
 \end{tabular}
 
@@ -100,7 +100,7 @@
 Clocks are usually based on quartz cristal oscillator. This oscillator is based on mechanical vibration using the piezoelectric effect. 
 \begin{itemize}
 	\item Embedded Systems need a steady clock
-	\item Synchronous nature of CPU and peripherals
+	\item Synchronous nature of \acs{CPU} and peripherals
 	\item Time Base for bus activity, timers, baud rates etc
 \end{itemize}
 \subsubsection{Parameters for Clock Signal \embsys{261}{6.3.1}}
@@ -135,14 +135,14 @@ What is the fastets event the system will need to handle?\\
 Has the value of $ V_{DD} $ been assigned?\\
 What peripherals will share the same clockfrequency?\\
 How precise does the clock need to be?\\
-What are the capabilities of the Clock System in my MCU?
+What are the capabilities of the Clock System in my \acs{MCU}?
 
 \subsubsection{Internal vs External Clock Source \embsys{265}{6.3.3}}
 \vspace{-0.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
         \textbf{Internal Clock}\newline
-        RC, mostly used in MCU's
+        RC, mostly used in \acs{MCU}'s
         \begin{itemize}
             \item [+] low number of Boardlevels
             \item [+] reducing area
@@ -172,7 +172,7 @@ What are the capabilities of the Clock System in my MCU?
 \subsubsection{RC Oscillators}
 \begin{minipage}{0.5\linewidth}
 \begin{itemize}
-    \item Based on PC phase shift circuit
+    \item Based on RC phase shift circuit
     \item Clock stability depends on component tolerance
         \subitem R depends on temperatur
         \subitem D can $ V_DD $
@@ -227,7 +227,7 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
 \subsubsection{FLL and FLL+ Clock Module \embsys{271}{6.4.1}}
 \begin{minipage}{0.55\linewidth}
     \textbf{FLL Clock Modul}\newline
-    This clock system consists of a pierce crystal Oscilator (\textbf{ACLK}) and a frequency stabilized, RC-based, Digitally Controlled Oscillator (\textbf{MCLK}).\newline
+    This clock system consists of a pierce crystal Oscilator (ACLK) and a frequency stabilized, RC-based, Digitally Controlled Oscillator (MCLK).\newline
     The Crystal in the Module can support a external 32kHz Crystal.
     Without a Xtal, an unlocked clocksignal on MCLK is generated.\newline\newline
     Build in Frequency Diveder are:\newline
@@ -310,6 +310,24 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     x6xx           & UCS           & LFXT1, DCO, XT2, VLO, MODOSC & MCLK, ACLK, SMCLK  & 32.000            & FLL/DCO            \\
 \end{tabular}
 }
-
+\subsection{Power-On Reset}
+The power-on reset is an electronic device incorporated into the integrated circuit that detects the power applied to the chip and generates a reset impulse that goes to the entire circuit placing it into a known state.\\
+\begin{itemize}
+	\item A Power-On Reset is a signal to bring the \acs{CPU} and peripherals to an initial known state
+	\item A requirement for all sequentail circuit
+	\item Generated by a dedicated circuit
+	\item Loads the Program Counter with the adress of the first instruction
+	\item Clears the Status Register
+	\item Reset System Peripherals
+\end{itemize}
+\subsection{Bootstrap Sequence}
+ The process involves a chain of stages, in which at each stage a smaller, simpler program loads and then executes the larger, more complicated program of the next stage.\\
+\begin{itemize}
+	\item Initializing the Stack Pointer
+	\item Deactiving or reconfiguring the Watchdog Timer
+	\item Configuring Low-Power Modes
+	\item Configuring Peripheral Modules
+	\item Loading an Operating System
+\end{itemize}
 \clearpage
 \pagebreak
