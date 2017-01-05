@@ -33,7 +33,7 @@
     \includegraphics[width=7cm]{images/PowerSource.png}
 \end{minipage}
 
-\subsubsection{Terms of Power Sources \embsys{252}{}}
+\subsubsection{Terms of Power Sources}
 \begin{minipage}{13cm}
 	\begin{itemize}
 		\item Power-Speed Tradeoff, link between frequency and power transfer
@@ -67,7 +67,7 @@
     \includegraphics[width=8cm]{images/NRPowerSource.png}
 \end{minipage}
 \clearpage
-\subsubsection{Low Power Modes of MSP430 \embsys{324}{7.3.7}}
+\subsubsection{Low Power Modes of MSP430}
 \begin{minipage}{11cm}
 	\begin{itemize}
 		\item Programming for Low-Power: Initalize, Activate interrupts, Enable Low Power Mode
@@ -103,7 +103,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 	\item Synchronous nature of \acs{CPU} and peripherals
 	\item Time Base for bus activity, timers, baud rates etc
 \end{itemize}
-\subsubsection{Parameters for Clock Signal \embsys{261}{6.3.1}}
+\subsubsection{Parameters for Clock Signal}
 \begin{minipage}{\linewidth}
     \centering
     \includegraphics[width=0.7\linewidth]{images/clock_parameters.png}
@@ -119,7 +119,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 \end{multicols}
 \end{minipage}
 
-\subsubsection{Clock Stability \embsys{262}{}}
+\subsubsection{Clock Stability}
 \begin{tabular}{ll}
 	Clock Stability & Fluctuations of a clock signal over time intervall\\
 	Clock Jitter & Randomness of signal passing voltage threshold\\
@@ -129,7 +129,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 \clearpage
 
 \vspace{-0.5cm}
-\subsubsection{Choosing a ClockSource \embsys{264}{6.3.2}}
+\subsubsection{Choosing a ClockSource}
 \textbf{\danger Choose the frequency as low as possible, but as high as necessary \danger }\newline
 What is the fastets event the system will need to handle?\\
 Has the value of $ V_{DD} $ been assigned?\\
@@ -137,7 +137,7 @@ What peripherals will share the same clockfrequency?\\
 How precise does the clock need to be?\\
 What are the capabilities of the Clock System in my \acs{MCU}?
 
-\subsubsection{Internal vs External Clock Source \embsys{265}{6.3.3}}
+\subsubsection{Internal vs External Clock Source}
 \vspace{-0.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
@@ -156,7 +156,7 @@ What are the capabilities of the Clock System in my \acs{MCU}?
 
     \begin{minipage}{\linewidth}
     \textbf{External Clock}\newline
-    External Digital Clocks, RC or Quarz
+    External Digital Clocks, \acs{RC} or Quarz
     \begin{itemize}
         \item [+] more flexible
         \item [+] wider range of frequencies
@@ -172,10 +172,10 @@ What are the capabilities of the Clock System in my \acs{MCU}?
 \subsubsection{RC Oscillators}
 \begin{minipage}{0.5\linewidth}
 \begin{itemize}
-    \item Based on RC phase shift circuit
+    \item Based on \acs{RC} phase shift circuit
     \item Clock stability depends on component tolerance
         \subitem R depends on temperatur
-        \subitem D can $ V_DD $
+        \subitem C can $ V_{DD}$
     \item Limited bandwith   
 \end{itemize}
 \[ R_b = \dfrac{R_f}{2} \qquad \tau=R\cdot C \qquad f = \dfrac{1}{2 \pi RC}  \]
@@ -184,7 +184,7 @@ What are the capabilities of the Clock System in my \acs{MCU}?
     \hspace{1cm}\includegraphics[width=0.5\linewidth]{images/RCOscillator} 
 \end{minipage}
 
-\subsubsection{Quartz Crystal Oscillators \embsys{266}{6.3.4}}
+\subsubsection{Quartz Crystal Oscillators}
 \vspace{-1cm}
 \begin{minipage}{0.5\linewidth}
     \[ f_s=\dfrac{1}{2\pi \sqrt{L_1 \cdot C_1}}\qquad f_p=\dfrac{1}{2\pi \sqrt{L_1 \dfrac{C_0 \cdot C_1}{C_0 + C_1}}} \]
@@ -209,7 +209,7 @@ What are the capabilities of the Clock System in my \acs{MCU}?
         \textbf{Colpitts Crystal Oscillator}\newline
        Parallel Resonant
         \begin{itemize}
-            \item [+] low RF emission
+            \item [+] low \acs{RF} emission
             \item [+] low powerconsumption
             \item [+] 
             \item [-] Susceptial to noise
@@ -218,20 +218,20 @@ What are the capabilities of the Clock System in my \acs{MCU}?
     \end{minipage}
 \end{multicols}
 
-\textbf{Oscillator Startup Time \embsys{269}{}}\newline
+\textbf{Oscillator Startup Time}\newline
 What Causes the Startup Delay?\newline
 Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
 \clearpage
 
 \subsection{System Clock \embsys{270}{6.4}}
-\subsubsection{FLL and FLL+ Clock Module \embsys{271}{6.4.1}}
+\subsubsection{\acs{FLL} and \acs{FLL}+ Clock Module}
 \begin{minipage}{0.55\linewidth}
-    \textbf{FLL Clock Modul}\newline
-    This clock system consists of a pierce crystal Oscilator (ACLK) and a frequency stabilized, RC-based, Digitally Controlled Oscillator (MCLK).\newline
+    \textbf{\acs{FLL} Clock Modul}\newline
+    This clock system consists of a pierce crystal Oscilator (\acs{ACLK}) and a frequency stabilized, \acs{RC}-based, Digitally Controlled Oscillator (\acs{MCLK}).\newline
     The Crystal in the Module can support a external 32kHz Crystal.
-    Without a Xtal, an unlocked clocksignal on MCLK is generated.\newline\newline
-    Build in Frequency Diveder are:\newline
-    MCLK, ACLK, ACLK/n (n= 2,4)
+    Without a Xtal, an unlocked clocksignal on \acs{MCLK} is generated.\newline\newline
+    Build in Frequency Divider are:\newline
+    \acs{MCLK}, \acs{ACLK}, \acs{ACLK}/n (n= 2,4)
 \end{minipage}
 \begin{minipage}{0.45\linewidth}
     \includegraphics[width=0.8\linewidth]{images/FLLClock} 
@@ -244,22 +244,22 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     The LFXT is a improved version of the pierce crystal oscillator. It accepts extern crystals with frequencies in the range from 400kHz to 8MHz.\newline\newline
     
     Provides four clock signals:\newline
-    MCLK, SMCLK, ACLK, ACLK/n (n= 1,2,4,8)
+    \acs{MCLK}, \acs{SMCLK}, \acs{ACLK}, \acs{ACLK}/n (n= 1,2,4,8)
 \end{minipage}
 \begin{minipage}{0.41\linewidth}
 \includegraphics[width=0.8\linewidth]{images/FLLpClock} 
 \end{minipage}
 
-\subsubsection{Basic Clock Module and Module+ \embsys{274}{6.4.2}}
+\subsubsection{Basic Clock Module and Module+}
 \begin{minipage}{0.585\linewidth}
     \textbf{Basic Clock Modul}\newline
     Includes three oscillators:\newline
     LFXT1, XT2, DCO\newline
-    The DCO is a open loop (no FLL) and has a improved stability. \newline
+    The \acs{DCO} is a open loop (no \acs{FLL}) and has a improved stability. \newline
     It doesn't need a external Xtal and supports low (32kHz) and high (450kHz to 8Mhz) crystals.\newline\newline
     
     Provides four clock signals:\newline
-    MCLK, SMCLK, ACLK \newline
+    \acs{MCLK}, \acs{SMCLK}, \acs{ACLK} \newline
     All Clock signals features programmable dividers
 \end{minipage}
 \begin{minipage}{0.41\linewidth}
@@ -272,16 +272,15 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     VLO for very low frequencys about 12kHz\newline\newline
     
     Inclusion of a minimum pulse filter \newline
-    HF Oscillator and DCO can now reach 16MHz\newline
+    \acs{HF} Oscillator and \acs{DCO} can now reach 16MHz\newline
     Added a fault detection to LFXT1
 \end{minipage}
 \begin{minipage}{0.41\linewidth}
     \hspace{-0.35cm}\includegraphics[width=0.85\linewidth]{images/BasicpClock} 
 \end{minipage}
 \clearpage
-%=====================================================================
 
-\subsubsection{The Unified Clock System \embsys{276}{6.4.3}}
+\subsubsection{The Unified Clock System}
 \begin{minipage}{0.585\linewidth}
     \textbf{Unified Clock System}\newline
     \begin{tabular}{ll}
@@ -310,17 +309,17 @@ Startup-Time is a function of Q \qquad large Q $ \rightarrow $ long Startup
     x6xx           & UCS           & LFXT1, DCO, XT2, VLO, MODOSC & MCLK, ACLK, SMCLK  & 32.000            & FLL/DCO            \\
 \end{tabular}
 }
-\subsection{Power-On Reset}
+\subsection{Power-On Reset \embsys{282}{6.5}}
 The power-on reset is an electronic device incorporated into the integrated circuit that detects the power applied to the chip and generates a reset impulse that goes to the entire circuit placing it into a known state.\\
 \begin{itemize}
-	\item A Power-On Reset is a signal to bring the \acs{CPU} and peripherals to an initial known state
+	\item A Power-On Reset (\acs{POR}) is a signal to bring the \acs{CPU} and peripherals to an initial known state
 	\item A requirement for all sequentail circuit
 	\item Generated by a dedicated circuit
 	\item Loads the Program Counter with the adress of the first instruction
 	\item Clears the Status Register
 	\item Reset System Peripherals
 \end{itemize}
-\subsection{Bootstrap Sequence}
+\subsection{Bootstrap Sequence \embsys{287}{6.6}}
  The process involves a chain of stages, in which at each stage a smaller, simpler program loads and then executes the larger, more complicated program of the next stage.\\
 \begin{itemize}
 	\item Initializing the Stack Pointer

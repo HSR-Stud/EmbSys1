@@ -1,4 +1,4 @@
-\section{Principles of Serial Communication \embsys{475}{9}}
+\section{Principles of Serial Communication}
 \vspace{-.5cm}
 \begin{multicols}{2}
     \begin{minipage}{\linewidth}
@@ -152,11 +152,11 @@
 \end{multicols}
 
 \begin{minipage}{12cm}
-    \subsection{Cirular Buffer}
+    \subsection{Circular Buffer}
     CodeBSP siehe Anhang \label{CircularBuffer}
 	\begin{itemize}
-		\item UART Hardware do sends/receive information in a sequence of Bytes
-		\item After Transmission/Reception (Tx/Rx) of each Byte, UART-states are monitored in dedicated Flags
+		\item \acs{UART} Hardware do sends/receive information in a sequence of Bytes
+		\item After Transmission/Reception (Tx/Rx) of each Byte, \acs{UART}-states are monitored in dedicated Flags
 		\item User Application shall be decoupled from sending/receiving Data
 	\end{itemize}
 \end{minipage}
@@ -170,7 +170,7 @@ The User Application reads received Byte from the Rx-Ring-Buffer. The "oldest" B
 \includegraphics[width=8cm]{images/rx_buffer.png}
 \subsubsection{TX Implementation}
 When Bytes need to be sent Bytes are placed into the Tx-Ring-Buffer Tx \acs{ISR} are enabled after putting a Byte into the Tx-Ring-Buffer. \\
-If the UART is ready to send a Byte an TX Interrupt occurs and the ISR extracts the "oldest" (least recent) Byte from the Tx-Ring-Buffer. The byte is then output to the UART.\\
+If the \acs{UART} is ready to send a Byte an TX Interrupt occurs and the ISR extracts the "oldest" (least recent) Byte from the Tx-Ring-Buffer. The byte is then output to the \acs{UART}.\\
 \includegraphics[width=8cm]{images/tx_buffer.png}
 \end{multicols}
 \clearpage

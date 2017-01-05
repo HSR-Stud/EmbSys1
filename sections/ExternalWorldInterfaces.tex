@@ -1,4 +1,4 @@
-\section{External World Interfaces \embsys{383}{8}}
+\section{External World Interfaces}
 \subsection{General Purpose Input-Output Ports (GPIO) \embsys{383}{8.1}}
 \subsubsection{General Characteristics of I/O Ports}
 \begin{itemize}
@@ -8,7 +8,7 @@
 \end{itemize}
 CodeBSP siehe Anhang \label{GPIO}
 \begin{multicols}{2}
-	\subsubsection{Structure of an Input-Output Pin \embsys{384}{8.1.1}}
+	\subsubsection{Structure of an Input-Output Pin}
 	\begin{itemize}
 		\item Input Pins, for binary Status
 		\item Output Pins, for binary Status
@@ -17,7 +17,7 @@ CodeBSP siehe Anhang \label{GPIO}
 	\includegraphics[width=\linewidth]{images/IOStructure}  
 \end{multicols}
 
-\subsubsection{MSP430 GPIO Registers \embsys{388}{8.1.3}}
+\subsubsection{MSP430 GPIO Registers}
 \begin{tabular}{>{\bfseries}lll}
 	PxSEL   &Port x Function Select             & Sets pin functionality  \\ 
 	PxDIR   &Port x Data Direction              & Sets pin as either IN or OUT \\ 
@@ -31,7 +31,7 @@ CodeBSP siehe Anhang \label{GPIO}
 	PxIV    &Port x Interrupt Vector            & Priority encoding for port Interrupts \\ 
 \end{tabular} 
 
-\subsubsection{Electrical Characteristics in I/O Pins \embsys{391}{8.2.1}}
+\subsubsection{Electrical Characteristics in I/O Pins}
 \begin{tabular}{lll}
 	$ V_{IL} $& Input Low Voltage&Maximum voltage inperpreted as low by pin input buffer\\
 	$ V_{IH} $& Input High Voltage& Minimum voltage interpreted as high by pin input buffer\\
@@ -41,7 +41,6 @@ CodeBSP siehe Anhang \label{GPIO}
 	&                      & Specified as $ V_m=V_{DD}/2 $ for CMOS logic\\
 \end{tabular} 
 \clearpage
-%=========================================
 
 \subsection{Interfacing Switches and Switch Arrays \embsys{402}{8.3}}
 \subsubsection{Switches and Buttons}
@@ -74,7 +73,7 @@ CodeBSP siehe Anhang \label{GPIO}
 		\includegraphics[width=0.5\linewidth]{images/Keypad.jpg}
 	\end{itemize}
 \end{multicols}
-\subsubsection{Hardware Debouncing Techniques \embsys{407}{8.3.7}}
+\subsubsection{Hardware Debouncing Techniques}
 \begin{multicols}{2}
     \begin{itemize}
         \item Reduce software complexity
@@ -115,7 +114,7 @@ CodeBSP siehe Anhang \label{GPIO}
 \begin{minipage}{0.5\linewidth}
     \includegraphics[width=0.9\linewidth]{images/HWDebounceIC}  
 \end{minipage}
-\subsubsection{Software Debouncing Techniques \embsys{410}{8.3.8}}
+\subsubsection{Software Debouncing Techniques}
 \begin{multicols}{2}
 \textbf{Recommendations}
 \begin{itemize}
@@ -138,7 +137,7 @@ CodeBSP siehe Anhang \label{GPIO}
         \subitem Siehe CodeBSP in Anhang \label{CountingDebouncer}     
 \end{itemize}
 \end{multicols}
-\subsection{Interfacing LEDs}
+\subsection{Interfacing LEDs \embsys{420}{8.5}}
 \begin{itemize}
 	\item Discrete \acs{LED}s
 	\subitem Requires a current and driving circuit
@@ -150,7 +149,7 @@ CodeBSP siehe Anhang \label{GPIO}
 	\item Graphic Panels
 	\subitem Pixel addressable Panels
 \end{itemize}
-\subsection{Interfacing \acs{LCD}s}
+\subsection{Interfacing \acs{LCD}s \embsys{426}{8.6}}
 \begin{itemize}
 	\item Liquid Crystal Displays (\acs{LCD}) use the property of liquid crystal materials of twisting the polarization angle of coherent light
 	\item Thin Film Transistor (\acs{TFT}) uses row column cell
