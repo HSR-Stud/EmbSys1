@@ -39,8 +39,8 @@
 	Unidirectional Link&  One Bidirectional Link& Two separate Bidirectional Link\\
 	Only one Direction & both Directions & both Directions\\
 	No \acs{ACK} of Data & one Direction at one Time & Simultaneous Communication\\
-	\includegraphics[width=6cm]{images/simplex.png}& \includegraphics[width=6cm]{images/half_duplex.png}&
-	\includegraphics[width=6cm]{images/duplex.png}\\
+	\includegraphics[width=6cm]{images/simplex}& \includegraphics[width=6cm]{images/half_duplex}&
+	\includegraphics[width=6cm]{images/duplex}\\
 \end{tabular}
 \begin{minipage}{0.2\linewidth}
 	\subsubsection{Topologies}
@@ -78,7 +78,8 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{7cm}
-	\includegraphics[width=7cm]{images/asyn.png}
+    \vspace{0.6cm}
+	\hspace{-2cm}\includegraphics[width=9cm]{images/asyn}
 \end{minipage}
 
 \subsubsection{Error Detection Mechanism}
@@ -107,14 +108,15 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{9cm}
-	\includegraphics[width=9cm]{images/uart.png}
+	\includegraphics[width=9cm]{images/uart}
 \end{minipage}
 
 \subsubsection{RS-232}
-\begin{minipage}{10cm}
+\begin{minipage}{12cm}
 	\begin{itemize}
 		\item asynchrone and Point to Point Link
-		\item One symbol consist of 5 to 9 Bit, often \acs{ASCII}-Code (7 or 8 Bit per Symbol)
+		\item One symbol consist of 5 to 9 Bit, often \acs{ASCII}-Code\newline
+        (7 or 8 Bit per Symbol)
 		\item Physical Voltages, Negative Logic
 		\item $1=-25V \quad to \quad -3V$\newline
 		$0=+25V\quad to \quad +3V$
@@ -124,11 +126,12 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{6cm}
-	\includegraphics[width=6cm]{images/Connectors_RS.png}
+	\includegraphics[width=6cm]{images/Connectors_RS}
 \end{minipage}
-\\
+\clearpage
+%===========================================
 \begin{tabular}{ccc}
-	\includegraphics[width=4cm]{images/pin_RS.png} & \includegraphics[width=6cm]{images/cable2_RS.png} & \includegraphics[width=6cm]{images/cable_RS.png}\\
+	\includegraphics[width=4cm]{images/pin_RS} & \includegraphics[width=6cm]{images/cable2_RS} & \includegraphics[width=6cm]{images/cable_RS}\\
 \end{tabular}
 \begin{multicols}{2}
     \subsubsection{RS-422}
@@ -147,8 +150,8 @@
 
 \subsubsection{Universal Serial Bus (\acs{USB})}
 \begin{multicols}{2}
-	\includegraphics[width=8cm]{images/usb_jacks.png}\\
-	\includegraphics[width=8cm]{images/usb_voltage.png}\\
+	\includegraphics[width=8cm]{images/usb_jacks}\\
+	\includegraphics[width=8cm]{images/usb_voltage}\\
 \end{multicols}
 
 \begin{minipage}{12cm}
@@ -161,17 +164,17 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{5cm}
-	\includegraphics[width=5cm]{images/ringbuffer.png}
+	\includegraphics[width=5cm]{images/ringbuffer}
 \end{minipage}
 \begin{multicols}{2}
 \subsubsection{RX Implementation}
 When Bytes are received Rx \acs{ISR} reads the Byte from the \acs{UART} in Rx-Ring-Buffer and places data in Ringbuffer. \\
 The User Application reads received Byte from the Rx-Ring-Buffer. The "oldest" Byte (least recent Byte) is extracted first from the Rx-Ring-Buffer.\\
-\includegraphics[width=8cm]{images/rx_buffer.png}
+\includegraphics[width=8cm]{images/rx_buffer}
 \subsubsection{TX Implementation}
 When Bytes need to be sent Bytes are placed into the Tx-Ring-Buffer Tx \acs{ISR} are enabled after putting a Byte into the Tx-Ring-Buffer. \\
 If the \acs{UART} is ready to send a Byte an TX Interrupt occurs and the ISR extracts the "oldest" (least recent) Byte from the Tx-Ring-Buffer. The byte is then output to the \acs{UART}.\\
-\includegraphics[width=8cm]{images/tx_buffer.png}
+\includegraphics[width=8cm]{images/tx_buffer}
 \end{multicols}
 \clearpage
 
@@ -198,7 +201,7 @@ For this concept there are two implementations:
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{8cm}
-	\includegraphics[width=8cm]{images/syn.png}
+	\includegraphics[width=8cm]{images/syn}
 \end{minipage}
 %=========================================================================
 %\clearpage
@@ -219,7 +222,7 @@ For this concept there are two implementations:
     \end{itemize}
 \end{multicols}
 \begin{minipage}{0.6\linewidth}
-    \includegraphics[width=\linewidth]{images/spi.png}
+    \includegraphics[width=\linewidth]{images/spi}
 \end{minipage}
 \begin{minipage}{0.4\linewidth}
      \textbf{Data Transfer}
@@ -251,10 +254,10 @@ For this concept there are two implementations:
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{6cm}
-	\includegraphics[width=6cm]{images/i2c_internal.png}
+	\includegraphics[width=6cm]{images/i2c_internal}
 \end{minipage}
-\includegraphics[width=12cm]{images/i2c_1.png}
-\includegraphics[width=6cm]{images/i2c_2.png}\\
+\includegraphics[width=12cm]{images/i2c_1}
+\includegraphics[width=6cm]{images/i2c_2}\\
 \begin{minipage}{\linewidth}
 	\begin{itemize}
 		\item Protocol contains three different conditions
@@ -268,7 +271,7 @@ For this concept there are two implementations:
 	\end{itemize}
 \end{minipage}
 
-\includegraphics[width=16cm]{images/i2c_data.png}\\
+\includegraphics[width=16cm]{images/i2c_data}\\
 %=========================================================================
 
 

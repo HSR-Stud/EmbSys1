@@ -27,34 +27,32 @@
 \end{tabular}
 
 \begin{minipage}{11cm}
-        \subsubsection{Interrupt Identification Method}
+\subsubsection{Interrupt Identification Method}
     \begin{itemize}
 		\item \textbf{Non-vectored Interrupt}
 		\subitem Single Interrupt Line
 		\subitem Single \acs{ISR} for all devices
 		\subitem \acs{CPU} identifies source by polling service request (\acs{SRQ}) flags
     \end{itemize}
-\end{minipage}	
-	\begin{minipage}{8cm}
-		\hspace{0.5cm}\includegraphics[width=7cm]{images/nonvectored.png}
-	\end{minipage}
-	\begin{minipage}{11cm}
-            \begin{itemize}
+
+    \begin{itemize}
 		\item \textbf{Vectored Interrupt}
 		\subitem Require an interrupt Acknowledgment (\acs{INTA}) cycle
 		\subitem Interface generate an ID number (vector) upon \acs{INTA}
 		\subitem ID Number allows calculating \acs{ISR} location
     \end{itemize}
-	\end{minipage}
-		\begin{minipage}{8cm}
-		\hspace{0.5cm}\includegraphics[width=7cm]{images/vectored.png}
-	\end{minipage}
+	
     \begin{itemize}
 	\item \textbf{Auto-vectored}
 	\subitem Each device has a fixed vector or \acs{ISR} adress
 	\subitem No \acs{INTA} cycle or vector issuing required
 	\subitem \acs{CPU} loads direct \acs{ISR} address into \acs{PC} to execute \acs{ISR}
 \end{itemize}
+\end{minipage}
+\begin{minipage}{8cm}
+    \includegraphics[width=\linewidth]{images/nonvectored}
+    \includegraphics[width=\linewidth]{images/vectored}
+\end{minipage}
 
 \begin{minipage}{0.6\linewidth}
     \subsubsection{Interrupt Priority Handling}
@@ -67,13 +65,14 @@
     \end{itemize}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
+    \vspace{0.5cm}
     \includegraphics[width=0.9\linewidth]{images/ISRPrio}
 \end{minipage}
 \clearpage
 \pagebreak
 
 \subsubsection{Interrupt Service Sequence}
-\includegraphics[width=16cm]{images/iss.png}
+\includegraphics[width=16cm]{images/iss}
 
 \subsection{Interrupthandling in the MSP430 \embsys{310}{7.2}}
 \begin{itemize}
@@ -121,7 +120,7 @@ A Binary Counter Driven by a Periodic Signal. It is possible to cascade multiple
 	\end{tabular}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-	\includegraphics[width=\linewidth]{images/timerstructure.png} 
+	\hspace{-1cm}\includegraphics[width=1.2\linewidth]{images/timerstructure} 
 \end{minipage}
 \vspace{-1.5cm}
 \subsubsection{Interval Timer vs Event Counter}
@@ -214,8 +213,7 @@ The size of the memory depends on device and family.
     \end{itemize}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-    \includegraphics[width=\linewidth]{images/BusArbitrationTrans}    
-    \vspace{1cm}    
+    \includegraphics[width=0.8\linewidth]{images/BusArbitrationTrans}      
     \includegraphics[width=\linewidth]{images/BusArbitrationSchem}
 \end{minipage}
 
@@ -253,9 +251,9 @@ The size of the memory depends on device and family.
             \end{minipage}
         \end{multicols}
 \end{minipage}
-\hspace{-1.5cm}
+\hspace{-1.7cm}
 \begin{minipage}{0.2\linewidth}
-    \includegraphics[width=1.5\linewidth]{images/DMAController}
+    \hspace*{0.1cm}\includegraphics[width=1.6\linewidth]{images/DMAController}
 \end{minipage}
     
 \clearpage

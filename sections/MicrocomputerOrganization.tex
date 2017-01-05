@@ -17,7 +17,7 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{0.3\linewidth}
-	\includegraphics[width=0.8\linewidth]{images/uCArchitecture} 
+	\includegraphics[width=\linewidth]{images/uCArchitecture} 
 \end{minipage}
 \subsection{Microcontroller vs. Microprocessors \embsys{82}{3.2}}
 \begin{multicols}{2}
@@ -30,7 +30,7 @@
 			\subitem Memory
 			\subitem \acs{I/O} Interface \& Devices
 			\item Additional Characteristics
-			\subitem Architecture optimized for accelerating data processing
+			\subitem Architecture optimized for \newline accelerating data processing
 			\subitem Include elements to accelerate instruction execution  
 		\end{itemize}
 \subsubsection{Microcontroller (\acs{MCU},  $\mu$C)}
@@ -49,7 +49,7 @@
 		\end{itemize}
 \end{multicols}
 
-    \includegraphics[width=8cm]{images/msp430hardware}
+    \includegraphics[width=10.5cm]{images/msp430hardware}
 	\includegraphics[width=8cm]{images/mCStructure}
 
 
@@ -73,8 +73,13 @@
 			\item Makes programming harder
 		\end{itemize}      
 \end{multicols}
-	\subsection{Central Processing Unit \embsys{86}{3.3}}
-\begin{minipage}{12cm}
+\clearpage
+%=====================================================
+
+
+\subsection{Central Processing Unit \embsys{86}{3.3}}
+\begin{multicols}{2}
+\begin{minipage}{\linewidth}
 	\begin{itemize}
 		\item Controll Unit (\acs{CU})
 		\item Arithmetic Logic Unit (\acs{ALU})
@@ -82,10 +87,7 @@
 		\item Bus Interface Logic (\acs{BIL})
 	\end{itemize}
 \end{minipage}
-\begin{minipage}{6cm}
-	\includegraphics[width=6cm]{images/CPUComponents}	
-\end{minipage}
-\begin{multicols}{2}
+
 	\subsubsection{Control Unit (\acs{CU})}   
 		\begin{itemize}
 			\item Governs the CPU working
@@ -109,13 +111,7 @@
 		\item Volatile Contents
 		\item General and Special Purpose Registers
 	\end{itemize}
-	\subsubsection{General Purpose Regiser (\acs{GPR})}
-	\begin{itemize}
-		\item Not tied to specific functions
-		\item Can hold data, variables, or addresses
-		\item Number of registers depend on \acs{CPU} architecture			
-	\end{itemize}
-	\columnbreak
+
 	\subsubsection{Special Register (\acs{SR})}	
 	\begin{itemize}
 		\item Instruction Register (\acs{IR})
@@ -127,6 +123,12 @@
 		\item Status Register (\acs{SR})
 		\subitem Holds the current \acs{CPU} Status (Flags)
 	\end{itemize}
+\vfill
+\columnbreak
+\begin{minipage}{\linewidth}
+    \includegraphics[width=\linewidth]{images/CPUComponents}	
+\end{minipage}
+
 	\subsubsection{Status Flags}
 	\begin{itemize}
 		\item Zero Flag (Z)
@@ -142,6 +144,14 @@
 		\subitem Is not associated to \acs{ALU} status
 		\subitem Indicates whether\acs{CPU} accept interrupts
 	\end{itemize}
+
+	\subsubsection{General Purpose Regiser (\acs{GPR})}
+    \begin{itemize}
+        \item Not tied to specific functions
+        \item Can hold data, variables, or addresses
+        \item Number of registers depend on \acs{CPU} architecture			
+    \end{itemize}
+
 \end{multicols}
 \subsection{System Buses \embsys{96}{3.4}}
 	\begin{itemize}
@@ -154,14 +164,19 @@
 		\item Control bus
 		\subitem regulate activity on buses		
 	\end{itemize}
+
+\clearpage
+%====================================================
+
 \subsection{Memory Organization \embsys{98}{3.5}}
+\begin{minipage}{9cm}
 		\begin{itemize}
 			\item The memory is organized as an array of cells
 			\item Each memory location is identified by an adress
 			\item The contents of a memory cell is a word
 		\end{itemize}
+    
 \subsubsection{Bus Architecture}
-\begin{minipage}{9cm}
     \begin{itemize}
         \item Von Neumann
         \subitem A single bus for Instructions and Data
@@ -169,16 +184,16 @@
         \subitem Separate Bus for Instructions and Data
     \end{itemize}
 \end{minipage}
-\begin{minipage}{7cm}
-    \includegraphics[width=7cm]{images/bus.png}
+\begin{minipage}{8cm}
+    \includegraphics[width=\linewidth]{images/bus}
 \end{minipage}
 
 \begin{multicols}{2}
 \subsubsection{Memory Types}
-\includegraphics[width=8cm]{images/memorytypes.png}
+\includegraphics[width=9cm]{images/memorytypes}
 
 \subsubsection{Endianness}
-\includegraphics[width=4.5cm]{images/be_le.png}
+\includegraphics[width=4.5cm]{images/be_le}
 \end{multicols}
 
 \subsection{I/O Subsystem \embsys{109}{3.6}}
@@ -213,5 +228,5 @@ Convers all the components other than the \acs{CPU} \& memory connected to the s
 \begin{minipage}{0.4\linewidth}
 	\includegraphics[width=\linewidth]{images/IOAnatomy} 
 \end{minipage}
-\pagebreak
 \clearpage
+\pagebreak

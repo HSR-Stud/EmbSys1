@@ -1,7 +1,6 @@
+\begin{minipage}{10cm}
 \section{Fundamentals of Interfacing}
 \subsection{Basic Interface Structure \embsys{249}{6.1}}
-\vspace{-0.5cm}
-\begin{minipage}{10cm}
 	\begin{itemize}
 		\item Power Source
 		\item Clock Oscillators
@@ -10,7 +9,7 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{5cm}
-	\includegraphics[width=6cm]{images/power.png}
+	\includegraphics[width=6cm]{images/power}
 \end{minipage}
 
 \subsection{Power Sources \embsys{250}{6.2}}
@@ -20,17 +19,17 @@
 	\item Require Steady Voltage
 	\item Establish reference Levels for internal Operations
 	\item Absolute Maximum Ratings
-	\subitem Maximum and Minimum supply values
-	\subitem Level of Stress
-	\subitem Do Not design operating device at these levels
+    	\subitem Maximum and Minimum supply values
+    	\subitem Level of Stress
+    	\subitem \textbf{Do Not} design operating device at these levels
 	\item Recommended Operating Conditions
-	\subitem Conditions where the device operats normal
+    	\subitem Conditions where the device operats normal
 	\item a typical \acs{MCU} Power Supply consist of a Unregulated Power Source and then for each peripheral interface with a Voltage Regulator
 \end{itemize}
 \end{minipage}
 \begin{minipage}{5cm}
     \hspace*{-2cm}
-    \includegraphics[width=7cm]{images/PowerSource.png}
+    \includegraphics[width=7cm]{images/PowerSource}
 \end{minipage}
 
 \subsubsection{Terms of Power Sources}
@@ -47,7 +46,7 @@
 	\end{itemize}
 \end{minipage}
 \begin{minipage}{5cm}
-    \includegraphics[width=6cm]{images/PSTradeoff.png}
+    \includegraphics[width=6cm]{images/PSTradeoff}
 \end{minipage}
 
 \begin{tabular}{l l}
@@ -60,11 +59,11 @@
 \end{tabular}
 \begin{minipage}{2cm}
     {\scriptsize
-    $V_R$ = regulated Volatge\newline
-    $ V_D$ = dropout Voltage \newline  } 
+    $V_R$ = regulated \newline \null\hspace{0.7cm} Volatge\newline
+    $ V_D$ = dropout \newline \null\hspace{0.7cm} Voltage\newline } 
 \end{minipage}
 \begin{minipage}{5cm}
-    \includegraphics[width=8cm]{images/NRPowerSource.png}
+    \includegraphics[width=8cm]{images/NRPowerSource}
 \end{minipage}
 \clearpage
 \subsubsection{Low Power Modes of MSP430}
@@ -75,7 +74,7 @@
 	\end{itemize}
 \end{minipage}
 		\begin{minipage}{8cm}
-	\includegraphics[width=8cm]{images/lowpower.png}
+	\includegraphics[width=8cm]{images/lowpower}
 \end{minipage}
 \begin{tabular}{|l|l|}
 	\hline
@@ -106,7 +105,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 \subsubsection{Parameters for Clock Signal}
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{images/clock_parameters.png}
+    \includegraphics[width=0.7\linewidth]{images/clock_parameters}
 \end{minipage}
 \begin{minipage}{\linewidth}
     \begin{multicols}{2}
@@ -130,7 +129,7 @@ Clocks are usually based on quartz cristal oscillator. This oscillator is based 
 
 \vspace{-0.5cm}
 \subsubsection{Choosing a ClockSource}
-\textbf{\danger Choose the frequency as low as possible, but as high as necessary \danger }\newline
+\textbf{Choose the frequency as low as possible, but as high as necessary}\newline
 What is the fastets event the system will need to handle?\\
 Has the value of $ V_{DD} $ been assigned?\\
 What peripherals will share the same clockfrequency?\\
@@ -169,8 +168,8 @@ What are the capabilities of the Clock System in my \acs{MCU}?
 \end{minipage}
 \end{multicols}
 
-\subsubsection{RC Oscillators}
 \begin{minipage}{0.5\linewidth}
+\subsubsection{RC Oscillators}
 \begin{itemize}
     \item Based on \acs{RC} phase shift circuit
     \item Clock stability depends on component tolerance
@@ -181,7 +180,7 @@ What are the capabilities of the Clock System in my \acs{MCU}?
 \[ R_b = \dfrac{R_f}{2} \qquad \tau=R\cdot C \qquad f = \dfrac{1}{2 \pi RC}  \]
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-    \hspace{1cm}\includegraphics[width=0.5\linewidth]{images/RCOscillator} 
+    \hspace{1cm}\includegraphics[width=0.7\linewidth]{images/RCOscillator} 
 \end{minipage}
 
 \subsubsection{Quartz Crystal Oscillators}
@@ -211,7 +210,6 @@ What are the capabilities of the Clock System in my \acs{MCU}?
         \begin{itemize}
             \item [+] low \acs{RF} emission
             \item [+] low powerconsumption
-            \item [+] 
             \item [-] Susceptial to noise
             \item [-] accelerated crystal aging
         \end{itemize}
