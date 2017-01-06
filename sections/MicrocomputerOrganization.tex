@@ -87,7 +87,6 @@
 		\item Bus Interface Logic (\acs{BIL})
 	\end{itemize}
 \end{minipage}
-
 	\subsubsection{Control Unit (\acs{CU})}   
 		\begin{itemize}
 			\item Governs the CPU working
@@ -96,7 +95,7 @@
 		\end{itemize}	
 	\subsubsection{Arithmetic Logic Unit (\acs{ALU})}
 	\begin{itemize}
-		\item Performs Supported Logic and Arithmetic Operations
+		\item Performs Logic and Arithmetic Operations
 		\item 'Sets' the width of Databus and Registers
 	\end{itemize}	
 	\subsubsection{Bus Interface Logic (\acs{BIL})}
@@ -111,13 +110,12 @@
 		\item Volatile Contents
 		\item General and Special Purpose Registers
 	\end{itemize}
-
 	\subsubsection{Special Register (\acs{SR})}	
 	\begin{itemize}
 		\item Instruction Register (\acs{IR})
 		\subitem Holds the current instruction 
 		\item Programm Counter (\acs{PC})
-		\subitem Holds the address of the next instruction to be fetched
+		\subitem Holds address of next instruction fetched
 		\item Stack Pointer (\acs{SP})
 		\subitem Holds the address of the current top-of-stack 
 		\item Status Register (\acs{SR})
@@ -154,17 +152,24 @@
 
 \end{multicols}
 \subsection{System Buses \embsys{96}{3.4}}
+\vspace{-0.3cm}
+	\begin{multicols}{2}
 	\begin{itemize}
 		\item Data Bus
-		\subitem carrying data and instructions for read \&write
+		\subitem carrying data \& instructions for read \&write
 		\subitem bidirectional \acs{CPU} $\leftrightarrow$ \acs{I/O} or memory
 		\item Adress bus
 		\subitem Indicate Adress to be accessed
-		\subitem number of memory which is adressable: 16Bit Bus $\rightarrow 2^{16}=64kB$ Memory
+		\subitem number of memory which is adressable: 
+		\subitem 16 Bit Bus $\rightarrow 2^{16}=64kB$ Memory
+		\subitem \textbf{Data Adress:}
+		\subitem The address of the first byte of a data item
+		\subitem \textbf{Physical Adress:} 
+		\subitem The address of each memory location
 		\item Control bus
 		\subitem regulate activity on buses		
 	\end{itemize}
-
+	\end{multicols}
 \clearpage
 %====================================================
 
