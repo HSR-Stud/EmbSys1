@@ -1,12 +1,12 @@
 # EmbSys1
 Zusammenfasssung der Vorlesung EmbSys1 HS16
 
-##Beschreibung
+## Beschreibung
 Zusammenfassung für Embedded Systems 1 - Using Microcontrollers and the MSP430 auf Grundlage der Vorlesung HS 16 von Erwin Brändle  
 Bei Korrekturen oder Ergänzungen wendet euch an einen der Mitwirkenden.
 
 
-##Modulschlussprüfung
+## Modulschlussprüfung
 Kompletter Stoff aus Skript, Vorlesung, Übungen und Praktikum  
  - Kapitel aus dem Buch Introduction to Embedded Systems 
   - Kapitel: 3.1-3.6 / 6.1-6.4 / 7 / 8.1-8.3 / 9 / 10  
@@ -30,7 +30,7 @@ Kompletter Stoff aus Skript, Vorlesung, Übungen und Praktikum
       - Übungen und Praktikumsunterlagen  
     
  
-##Plan und Lerninhalte
+## Plan und Lerninhalte
    Allgemeine Betrachtungen zu Embedded Systemen  
    Fokus: MSP430 (Ultra Low Power Microcontroller)  
        - Power und Clock-System
@@ -40,12 +40,12 @@ Kompletter Stoff aus Skript, Vorlesung, Übungen und Praktikum
        - Watchdog und Timer  
        - UART, SPI, I2C, usw.
 
-##Contributors
+## Contributors
    - Luca Mazzoleni luca.mazzoleni@hsr.ch  
    - Michel Gisler  michel.gisler@hsr.ch
    
-##License
-###Creative Commons BY-NC-SA 3.0
+## License
+### Creative Commons BY-NC-SA 3.0
 Sie dürfen:  
     - Das Werk bzw. den Inhalt vervielfältigen, verbreiten und öffentlich
     zugänglich machen.  
